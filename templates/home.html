@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - TRYST'24</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/st.css" %}">
+</head>
+<body class="bg" style="background-image: url('{% static 'images/fbg_final.png' %}')">
+  <nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+    <label class="logo">TRYST</label>
+    <ul>
+      <li><a class="active" href="#">Home</a></li>
+      <li><a href="#">Team</a></li>
+      <li><a href="#">Sponsors</a></li>
+      <li><a href="#">Passes</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+  <div class="mainhead">
+    <h1 class="headline">TRYST</h1>
+    <h3 class="tagline">7 - 8 March 2024</h3>
+  </div>
+  <button class="mainbtn"><a href="#">Explore</a></button>
+</body>
+</html>
