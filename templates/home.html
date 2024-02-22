@@ -6,7 +6,7 @@
     <title>Home - TRYST'24</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     {% load static %}
-    <link rel="stylesheet" href="{% static "css/st.css" %}">
+    <link rel="stylesheet" href="{% static "css/styl.css" %}">
 </head>
 <body class="bg" style="background-image: url('{% static 'images/fbg_final.png' %}')">
   <nav>
@@ -14,19 +14,48 @@
     <label for="check" class="checkbtn">
       <i class="fas fa-bars"></i>
     </label>
-    <label class="logo">TRYST</label>
+    <img class="logo" src="{% static 'images/trystlogo.png' %}" height="130px" width="150px">
     <ul>
-      <li><a class="active" href="#">Home</a></li>
-      <li><a href="#">Team</a></li>
-      <li><a href="#">Sponsors</a></li>
-      <li><a href="#">Passes</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a class="navlinks" href="#">Home</a></li>
+      <li><a class="navlinks" href="#">Events</a></li>
+      <li><a class="navlinks" href="#">Brochure</a></li>
+      <li><a class="navlinks" href="#">Contact</a></li>
+      <li><a class="navlinks" href="#">Registration</a></li>
     </ul>
   </nav>
   <div class="mainhead">
     <h1 class="headline">TRYST</h1>
-    <h3 class="tagline">7 - 8 March 2024</h3>
+    <h3 class="tagline">6 - 7 March 2024</h3>
   </div>
   <button class="mainbtn"><a href="#">Explore</a></button>
+  <div class="sponsors">
+    <h1 class="sponsorhead">Sponsors</h1>
+    <div class="slider">
+      <div class="slide-track">
+        <div class="slide">
+          <img src="{% static 'images/cokelogo.jpg' %}" alt="" height="100px" width="150px">
+        </div>
+        <div class="slide">
+          <img src="{% static 'images/cokelogo.jpg' %}" alt="" height="100px" width="150px">
+        </div>
+        <div class="slide">
+          <img src="{% static 'images/cokelogo.jpg' %}" alt="" height="100px" width="150px">
+        </div>
+        <div class="slide">
+          <img src="{% static 'images/cokelogo.jpg' %}" alt="" height="100px" width="150px">
+        </div>
+        <div class="slide">
+          <img src="{% static 'images/cokelogo.jpg' %}" alt="" height="100px" width="150px">
+        </div>
+        <div class="slide">
+          <img src="{% static 'images/cokelogo.jpg' %}" alt="" height="100px" width="150px">
+        </div>
+        <div class="slide">
+          <img src="{% static 'images/cokelogo.jpg' %}" alt="" height="100px" width="150px">
+        </div>
+      </div>
+    </div>
+
+  </div>
 </body>
 </html>
