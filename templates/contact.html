@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - TRYST'24</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static "css/contaacc.css" %}">
+</head>
+<body class="cbg" style="background-image: url('{% static 'images/fbg.jpg' %}')">
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <img class="logo" src="{% static 'images/trystlogo.png' %}" height="130px" width="150px">
+        <ul>
+          <li><a class="navlinks" href="{% url 'home' %}">Home</a></li>
+          <li><a class="navlinks" href="{% url 'events' %}">Events</a></li>
+          <li><a class="navlinks" href="#">Brochure</a></li>
+          <li><a class="navlinks" href="{% url 'contact' %}">Contact</a></li>
+          <li><a class="navlinks" href="#">Registration</a></li>
+        </ul>
+    </nav>
+    <div class="container df">
+        <div class="maincontainer df">
+            <img src="{% static 'images/trystcontact.jpg' %}" alt="" class="imgsz">
+            <div class="sidecontainer df">
+                <h1 class="query">Contact Us</h1>
+                {% if message %}
+                    <p class= "dispmsg">{{ message }}</p>
+                {% endif %}
+                <form method="post" action= "{% url 'contact' %}" class="df">
+                    {% csrf_token %}
+                    <div class="flexfields df">
+                        <input class="field" type="text" name="firstname" id="firstname" placeholder="First Name">
+                        <input class="field" type="text" name="lastname" id="lastname" placeholder="Last Name">
+                    </div>
+                    <input class="email" type="email" name="usremail" id="usremail" placeholder="Email ID">
+                    <textarea class="description" name="description" id="description"
+                        placeholder="Write Your Description Here..."></textarea>
+                    <button type="submit" class="subbtn">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="socialmedia">
+            <a href="https://www.facebook.com/TRYSTKESHAV/"><img src="{% static 'images/facebook.png' %}" alt="" height="45px"
+                    width="45px"></a>
+            <a href="https://www.instagram.com/tryst_kmv/"><img src="{% static 'images/instagram.png' %}" alt="" height="45px"
+                    width="45px"></a>
+            <a href="https://www.youtube.com/channel/UC23C6Vghe1eROCsvEyM-4hQ"><img src="{% static 'images/x.png' %}"
+                    alt="" height="45px" width="45px"></a>
+        </div>
+        <h4 class="developed-by">Designed and Developed by <span class="ansh-juneja">Ansh Juneja</span></h4>
+        <div class="copyright">
+            <h3>
+                Copyright © 2024 KMVTRYST
+            </h3>
+            <p class="rights">All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
