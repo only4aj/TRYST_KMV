@@ -1,0 +1,184 @@
+@media (max-width:1025px) {
+    .container{
+        width: 100vw;
+        height: auto;
+        margin-top: 20px;
+    }
+    .logo{
+        width: 100px;
+        height: 90px;
+    }
+    .navbar{
+        height: 70px;
+    }
+    .maincontainer{
+        width: 100vw;
+        height: auto;
+        margin: 0;
+        flex-wrap: wrap;
+    }
+    .imgsz{
+        width: 480px;
+    }
+    .sidecontainer{
+        width: 480px;
+    }
+
+    .field{
+        width: 225%;
+    }
+    .email{
+        width: 460px;
+    }
+
+    .description{
+        width: 460px;
+    }
+}
+
+@media (max-width:770px) {
+    .logo{
+        width: 80px;
+        height: 80px;
+    }
+    .navbar{
+        height: 65px;
+    }
+    .imgsz{
+        width: 550px;
+    }
+    .sidecontainer{
+        width: 550px;
+    }
+}
+@media (max-width:735px) {
+    .logo{
+        width: 80px;
+        height: 80px;
+    }
+    .navlist {
+        background-color: rgb(21, 21, 21);
+        width: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: absolute;
+        top: 10px;
+        right: 0px;
+        font-size: 13px;
+        margin: 0;
+        border-radius: 10px;
+        transition: 1s;
+    }
+
+    #cut {
+        width: 40px;
+    }
+
+    .navbaritem img {
+        display: block;
+    }
+
+    nav ul li {
+        line-height: 40px;
+    }
+
+    .navlinks {
+        font-size: 19px;
+    }
+
+    .menu {
+        margin-right: 10px;
+    }
+}
+
+@media (max-width:470px) {
+    .logo{
+        width: 70px;
+        height: 70px;
+    }
+    .navbar{
+        height: 55px;
+    }
+    .imgsz{
+        width: 350px;
+        height: 400px;
+    }
+    .sidecontainer{
+        width: 350px;
+        height: auto;
+    }
+    .query{
+        font-size: 30px;
+    }
+    .flexfields{
+        flex-direction: column;
+    }
+
+    .field{
+        width: 300px;
+    }
+    .email{
+        width: 300px;
+    }
+    .description{
+        width: 300px;
+        height: 100px;
+    }
+    .form{
+        width: 300px;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+@media (max-width:360px) {
+    .imgsz{
+        width: 280px;
+        height: 310px;
+    }
+    .sidecontainer{
+        width: 280px;
+    }
+    .query{
+        font-size: 25px;
+    }
+    .form{
+        width: 260px;
+        margin: 0;
+        gap: 10px;
+        margin-left: 15px;
+    }
+    .field{
+        width: 220px;
+        font-size: 15px;
+    }
+    .email{
+        width: 220px;
+        font-size: 15px;
+    }
+    .description{
+        width: 220px;
+        font-size: 15px;
+        height: 60px;
+    }
+    .subbtn{
+        width: 90px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width:300px) {
+    .imgsz{
+        width: 250px;
+        height: 280px;
+    }
+    .sidecontainer{
+        width: 250px;
+    }
+    .form{
+        width: 220px;
+        margin: 0;
+    }
+}

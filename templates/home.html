@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,7 @@
     <title>Home - TRYST'24</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     {% load static %}
-    <link rel="stylesheet" href="{% static "css/styl.css" %}">
+    <link rel="stylesheet" href="{% static 'css/styl.css' %}">
 </head>
 <body class="bg" style="background-image: url('{% static 'images/fbg_final.png' %}')">
   <nav>
@@ -58,4 +58,187 @@
 
   </div>
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - TRYST'24</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="{% static 'css/events.css'%}">
+  <link rel="stylesheet" href="{% static 'css/styl.css' %}">
+  <link rel="stylesheet" href="{% static 'css/media.css'%}">
+  <link rel="stylesheet" href="{% static 'css/homemedia.css'%}">
+</head>
+
+<body class="bg">
+  <div class="conContainer" id="container">
+    <header>
+      <nav class="df navBar">
+        <img class="logo" src="{% static 'images/trystlogo.png' %}">
+        <div id="menu" class="menu">
+          <img src="{% static 'images/menu.png' %}" onclick="menuOpen()" alt="">
+        </div>
+        <ul id="navbar" class="navlist">
+          <div class="navbaritem" id="navbaritem">
+            <img src="{% static 'images/cut.png' %}" id="cut" alt="" onclick="exitOut()">
+            <li id="li"><a class="navlinks" href="{% url 'home' %}">Home</a></li>
+            <li><a class="navlinks" id="navlinks" href="{% url 'events' %}">Events</a></li>
+            <li><a class="navlinks" href="{% url 'contact' %}">Contact</a></li>
+            <li><a class="navlinks" href="{%url 'registration' %}">Registration</a></li>
+          </div>
+        </ul>
+      </nav>
+    </header>
+    <main onclick="moveout()" onscroll="moveout()">
+      <div class="df main">
+        <div class="df mainhead">
+          <h1 class="headline">TRYST</h1>
+          <h3 class="tagline">6 - 7 March 2024</h3>
+        </div>
+        <button class="mainbtn"><a href="#">Explore</a></button>
+      </div>
+      <div class="df trystinfo">
+        <div class="leftside">
+          <h1 id="lefttryst">WHAT'S IN <span class="tryst">TRYST'24</span></h1>
+          <p>Every year, the Students Union, IHE conducts the much awaited annual cultural fest, ‘FERIA’. The students
+            eagerly look forward to their annual cultural festival that symbolizes a splendid fair like event with lots
+            of
+            stalls, fun and frolic. Students from many colleges participate in various competitions. The entire college
+            wears a festive look as students participate in fun filled activities including games, competitions, food
+            stalls and shopping. The students are instrumental in arranging good sponsorships for the events. Eminent
+            artists, performers and choreographers are involved as they train promising and interested students in
+            choreography, dances and dramatization. All the cultural societies in the college be it Eleganza, Tarkaas,
+            Poise, Navrang, Muzahira and Iridescence participate in the festival with full rigour and enthusiasm. FERIA
+            is
+            indeed a much-awaited event by the students and is marked by a variety of inter-college events such as
+            choreography, debates, music, dance competitions, street play and one-act play, fashion-shows, face art,
+            rangoli making and many more exciting events. The events in Feria are judged by eminent personalities from
+            the
+            fields of art, music, dance, theatre and media. Attractive prizes are given to the winners.</p>
+        </div>
+        <div class="rightside">
+          <iframe src="https://www.youtube.com/embed/-yHeiwMQQh0" title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+        <h1 id="righttryst" class="leftside">WHAT'S IN <span class="tryst">TRYST'24</span></h1>
+      </div>
+      <div class="df sponsors">
+        <h1 class="sponsor-heading">SPONSORS</h1>
+        <img class="underfancy underfancy1" src="{% static 'images/fancyunderline.png' %}" alt="">
+        <div class="df rowimg">
+          <div class="df rowoneimg">
+            <img src="{% static 'images/cokelogo.jpg' %}" alt="">
+            <img src="{% static 'images/cokelogo.jpg' %}" alt="">
+            <img src="{% static 'images/cokelogo.jpg' %}" alt="">
+          </div>
+          <div class="df rowtwoimg">
+            <img src="{% static 'images/cokelogo.jpg' %}" alt="">
+            <img src="{% static 'images/cokelogo.jpg' %}" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="past-artists">
+        <div class="df artist-heading">
+          <h1 class="artist-heading">PREVIOUS ARTISTS</h1>
+          <img class="underfancy artist" src="{% static 'images/fancyunderline.png' %}" alt="">
+        </div>
+        <div class="df artistimg">
+          <div class="artistdesc">
+            <img src="{% static 'images/bpraak.jpg' %}" alt="">
+            <h1>B PRAAK</h1>
+          </div>
+          <div class="artistdesc">
+            <img src="{% static 'images/mg.png' %}" alt="">
+            <h1>MILLIND GABA</h1>
+          </div>
+          <div class="artistdesc">
+            <img src="{% static 'images/ikka.png' %}" alt="">
+            <h1>IKKA</h1>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="socialmedia">
+        <a href="https://www.facebook.com/TRYSTKESHAV/"><img src="{% static 'images/facebook.png' %}" alt=""
+            height="45px" width="45px"></a>
+        <a href="https://www.instagram.com/tryst_kmv/"><img src="{% static 'images/instagram.png' %}" alt=""
+            height="45px" width="45px"></a>
+        <a href="https://www.youtube.com/channel/UC23C6Vghe1eROCsvEyM-4hQ"><img src="{% static 'images/x.png' %}" alt=""
+            height="45px" width="45px"></a>
+      </div>
+      <h4 class="developed-by">Designed and Developed by <span class="ansh-juneja">Ansh Juneja</span></h4>
+      <div class="copyright">
+        <h3>
+          Copyright © 2024 KMVTRYST
+        </h3>
+        <p class="rights">All Rights Reserved</p>
+      </div>
+    </footer>
+  </div>
+</body>
+
+<script>
+
+  // window.addEventListener("resize", () => {
+  //   location.reload()
+  // })
+  let width = window.screen.width
+  if (width < 770) {
+    let nav = document.getElementById("navbar")
+    nav.style.right = '-200px';
+    nav.style.display = 'none';
+    document.getElementById("menu").style.display = 'block';
+  } else {
+    document.getElementById("cut").style.display = 'none';
+    document.getElementById("menu").style.display = 'none';
+  }
+
+  const moveout = () => {
+    if (width < 770) {
+      // let navbar = document.getElementById("navbar")
+      // navbar.style.right = "-200px"
+      // nav.style.display = 'none';
+      // document.getElementById("menu").style.display = 'block';
+      setTimeout(() => {
+        menuOpen()
+      }, 200);
+      exitOut()
+    }
+  }
+
+  if (width < 1025) {
+    document.getElementById("lefttryst").style.display = 'none'
+    document.getElementById("righttryst").style.display = 'block'
+  } else {
+    document.getElementById("lefttryst").style.display = 'block'
+    document.getElementById("righttryst").style.display = 'none'
+  }
+
+  const exitOut = () => {
+    let nav = document.getElementById("navbar")
+    nav.style.right = '-200px';
+    nav.style.transition = '0.5s';
+    setTimeout(() => {
+      nav.style.display = 'none';
+      document.getElementById("menu").style.display = 'block';
+    }, 200);
+  }
+
+  const menuOpen = () => {
+    let menu = document.getElementById("menu")
+    menu.style.display = 'none'
+    let nav = document.getElementById("navbar")
+    nav.style.display = 'block';
+    nav.style.right = '0px';
+    nav.style.transition = '0.2s';
+  }
+</script>
+
 </html>
