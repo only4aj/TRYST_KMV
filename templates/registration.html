@@ -3,10 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+    {%load static%}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
-    <link rel="stylesheet" href="registration.css">
-    <link rel="stylesheet" href="media.css">
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
@@ -33,40 +34,49 @@
         <div class="container">
             <div class="d-flex  justify-content-center">
                 <div class="form d-flex flex-column align-items-center justify-content-center">
-                    <div class="reg d-flex justify-content-center">
+                    <div class="d-flex justify-content-center flex-column align-items-end reg">
+                        <div id="alert" className="alert alert-danger alert-dismissible fade show alt" role="alert">
+                            <!-- <strong>Error : </strong> -->
+                            <p id="txt"></p>
+                        </div>
                         <h1><Span class="badge bg-secondary">Registration Form</Span></h1>
                     </div>
+                    <!-- <form onsubmit="dataSubmit()"> -->
                     <form>
                         <div class="mb-3">
                             <label for="name" class="form-label">Enter Name</label>
-                            <input type="text" class="form-control" id="name" required aria-describedby="emailHelp">
+                            <input type="text" class="form-control" onkeyup="checkName()" id="name" name="name" required
+                                aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="form-label">Enter Phone</label>
-                            <input type="tel" class="form-control" id="phone" required aria-describedby="emailHelp">
+                            <input type="tel" class="form-control" value="000" onkeyup="checkPhone()" id="phone"
+                                name="phone" required aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="dob" class="form-label">Enter Date of Birth</label>
-                            <input type="date" class="form-control" id="dob" required aria-describedby="emailHelp">
+                            <input type="date" class="form-control" id="dob" name="dob" required
+                                aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="collegeNme" class="form-label">Enter College Name</label>
-                            <input type="text" class="form-control" id="collegeNme" required
+                            <input type="text" class="form-control" id="collegeNme" name="collegeNme" required
                                 aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Enter Email address</label>
-                            <input type="email" class="form-control" id="email" required aria-describedby="emailHelp">
+                            <input type="email" class="form-control" placeholder="example@gmail.com"
+                                onkeyup="checkEmail()" id="email" name="email" required aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="aadhar" class="form-label">Upload Aadhar Card</label>
-                            <input type="file" class="form-control" id="aadhar" required>
+                            <input type="file" class="form-control" id="aadhar" name="aadhar" required>
                         </div>
                         <div class="mb-3">
                             <label for="image" class="form-label">Upload Your Image</label>
-                            <input type="file" class="form-control" id="image" required>
+                            <input type="file" class="form-control" id="image" name="image" required>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button disabled id="btn" type="submit" class="btn btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
@@ -80,5 +90,70 @@
         crossorigin="anonymous"></script>
 
 </body>
+<script>
+    document.getElementById("alert").style.display = 'none';
+    let alert = document.getElementById("alert").style
+    let btn = document.getElementById("btn")
+    let error = document.getElementById("txt")
+
+    const checkName = () => {
+        let name = document.getElementById("name").value
+
+        if (name.replace(/\D/gm, "") !== "") {
+            console.log(name.replace(/\D/gm, ""))
+            alert.display = 'block'
+            alert.color = 'red'
+            error.innerText = 'Only Alphabets are allowed'
+            btn.disabled = true;
+        }
+        else {
+            alert.display = 'none'
+            btn.disabled = false;
+        }
+    }
+
+    const checkEmail = () => {
+        let email = document.getElementById("email").value
+        if (email.match(/@gmail.com/gm) === null) {
+            alert.display = 'block'
+            alert.color = 'red'
+            error.innerText = "Only 'gmail.com' email adress are allowed"
+            btn.disabled = true;
+        }
+        else {
+            alert.display = 'none'
+            btn.disabled = false;
+        }
+    }
+    const checkPhone = () => {
+        let phone = document.getElementById("phone").value
+        if (phone.match(/\d/gm) === null) {
+            if (phone !== '') {
+                alert.display = 'block'
+                alert.color = 'red'
+                error.innerText = 'Only Phone Number are allowed'
+                btn.disabled = true;
+            }
+        }
+        else if (phone.match(/\d/gm).length !== phone.length) {
+            console.log(phone.match(/\d/gm).length)
+            alert.display = 'block'
+            alert.color = 'red'
+            error.innerText = 'Only Phone Number are allowed'
+            btn.disabled = true;
+        }
+        else if (phone.length !== 10) {
+            alert.display = 'block'
+            alert.color = 'red'
+            error.innerText = 'Phone is 10 digits required'
+            btn.disabled = true;
+        }
+        else {
+            alert.display = 'none'
+            btn.disabled = false;
+        }
+    }
+
+</script>
 
 </html>
