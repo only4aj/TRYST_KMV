@@ -1,0 +1,301 @@
+@media (max-width:1025px) {
+    .mainhead {
+        margin-top: 90px;
+    }
+
+    .trystinfo {
+        height: auto;
+        flex-wrap: wrap-reverse;
+    }
+
+    .artistdesc img {
+        width: 280px;
+        height: 280px;
+    }
+
+    .artistdesc h1 {
+        margin-top: 245px;
+    }
+
+    .past-artists {
+        height: 600px;
+    }
+
+    .arttistimg {
+        justify-content: space-evenly;
+    }
+    
+    .leftside{
+        padding-top: 0;
+    }
+
+    .rightside{
+        margin-top: 0;
+        width: 508px;
+    }
+
+    .rightside iframe{
+        width: 500px;
+    }
+}
+
+@media (max-width:971px) {
+    .mainhead{
+        margin-top: 70px;
+    }
+}
+
+@media (max-width:856px) {
+    .navlinks{
+        font-size: 20px;
+    }
+}
+
+@media (max-width:770px) {
+    .mainhead {
+        margin-top: 50px;
+    }
+
+    .headline {
+        font-size: 90px;
+    }
+
+    .tagline {
+        font-size: 38px;
+    }
+
+    .main {
+        gap: 85px;
+    }
+
+    .mainbtn {
+        margin-bottom: 70px;
+    }
+
+    .artist-heading {
+        gap: 5px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .artistdesc img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .artistdesc h1 {
+        margin-top: 170px;
+        font-size: 25px;
+        color: maroon;
+    }
+
+    .artistimg {
+        justify-content: space-evenly;
+    }
+
+    .sponsors {
+        gap: 10px;
+        padding-bottom: 20px;
+    }
+
+    .underfancy1 {
+        margin-top: -20px;
+    }
+
+    .past-artists {
+        height: 450px;
+    }
+
+    .sponsor-heading {
+        margin-top: 70px;
+    }
+    #li{
+        display: block;
+    }
+}
+
+@media (max-width:450px){
+    /* .conContainer {
+        background-image: url('/images/back.png');
+        background-size: 165% 22%;
+        background-position: left -130px top 10px;
+    }
+    .mainhead {
+        margin-top: 190px;
+    } */
+    .headline {
+        font-size: 70px;
+    }
+
+    .rightside {
+        width: 350px;
+        height: 230px;
+    }
+
+    .rightside iframe {
+        width: 340px;
+        height: 220px;
+    }
+/* }
+
+@media (max-width:395px) { */
+    .conContainer {
+        background-image: url('/static/images/back.png');
+        background-size: 165% 22%;
+        background-position: left -130px top 10px;
+    }
+    .main{
+        gap: 85px;
+    }
+    .mainhead {
+        margin-top: 230px;
+    }
+
+    .leftside {
+        font-size: 25px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .rightside{
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .leftside p {
+        width: 345px;
+        padding-bottom: 30px;
+        font-size: 13px;
+    }
+
+    .tryst {
+        font-size: 40px;
+    }
+
+    .trystinfo {
+        gap: 50px;
+        margin-bottom: -5px;
+    }
+
+    .sponsor-heading{
+        margin-top: 50px;
+    }
+
+    .underfancy{
+        width: 300px;
+        height: 50px;
+    }
+
+    .rowimg img{
+        width: 95px;
+        height: 95px;
+    }
+    .rowoneimg{
+        gap: 20px;
+    }
+    .rowtwoimg{
+        gap: 20px;
+    }
+
+    .artist-heading {
+        font-size: 30px;
+        gap: 0;
+    }
+
+    .past-artists{
+        height: 900px;
+    }
+
+    .artistimg{
+        gap: 25px;
+    }
+
+    .artistdesc img{
+        width: 220px;
+        height: 220px;
+    }
+
+    .artistdesc h1{
+        margin-top: 190px;
+    }
+
+    .artist{
+        width: 370px;
+        height: 52px;
+    }
+}
+
+@media (max-width:325px) {
+    .conContainer {
+        background-size: 165% 20%;
+        background-position: left -100px top 30px;
+    }
+
+    .mainhead{
+        margin-top: 200px;
+    }
+    .headline{
+        font-size: 55px;
+    }
+    .tagline{
+        font-size: 30px;
+    }
+
+    .leftside{
+        font-size: 20px;
+    }
+
+    .tryst{
+        font-size: 35px;
+    }
+
+    .rightside{
+        width: 290px;
+        height: 210px;
+    }
+
+    .rightside iframe{
+        width: 280px;
+        height: 200px;
+    }
+
+    .leftside p{
+        width: 300px;
+        font-size: 12px;
+        margin-left: 10px;
+    }
+
+    .rowimg{
+        gap: 0;
+    }
+    .rowimg img{
+        width: 85px;
+        height: 85px;
+    }
+    .rowoneimg{
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .sponsor-heading{
+        font-size: 35px;
+    }
+
+    .underfancy{
+        width: 250px;
+        height: 40px;
+    }
+
+    .sponsors{
+        padding-bottom: 0;
+    }
+
+    .artist-heading{
+        font-size: 26px;
+    }
+
+    .artist{
+        width: 310px;
+        height: 42px;
+    }
+}

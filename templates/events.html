@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -125,4 +126,177 @@
         </div>
     </footer>
 </body>
+=======
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - TRYST'24</title>
+    <link rel="stylesheet" href="{% static 'css/events.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media.css' %}">
+</head>
+
+<body class="cbg">
+    <header>
+        <nav class="df navBar">
+            <img class="logo" src="{% static 'images/trystlogo.png' %}">
+            <div id="menu" class="menu">
+                <img src="{% static 'images/menu.png' %}" onclick="menuOpen()" alt="">
+            </div>
+            <ul id="navbar" class="navlist">
+                <div class="navbaritem" id="navbaritem">
+                    <img src="{% static 'images/cut.png' %}" id="cut" alt="" onclick="exitOut()">
+                    <li id="li"><a class="navlinks" href="{% url 'home'%}">Home</a></li>
+                    <li><a class="navlinks" id="navlinks" href="{% url 'events' %}">Events</a></li>
+                    <li><a class="navlinks" href="{% url 'contact'%}">Contact</a></li>
+                    <li><a class="navlinks" href="{% url 'registration'%}">Registration</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="df top-heading">
+            <h1 class="heading">EVENTS</h1>
+            <img class="underfancy" src="{% static 'images/fancyunderline.png' %}" alt="">
+        </div>
+        <div class="cardstack df cards">
+            <div class="eventcard">
+                <img src="{% static 'images/fbg_final.png' %}" alt="">
+               <div class="cardinfo">
+                    <p class="genre">Fashion</p>
+                    <h2 class="eventhead">EnVogue'24 - The Fashion Competition</h2>
+                    <p class="venue">Main Stage</p>
+                    <p class="time">2pm - 4pm</p>
+                    <button class="eventregister"><a href="">Register</a></button>
+                </div>
+            </div>
+            <div class="eventcard">
+                <img src="{% static 'images/fbg_final.png' %}" alt="">
+                <div class="cardinfo">
+                    <p class="genre">Fashion</p>
+                    <h2 class="eventhead">EnVogue'24 - The Fashion Competition</h2>
+                    <p class="venue">Main Stage</p>
+                    <p class="time">2pm - 4pm</p>
+                    <button class="eventregister"><a href="">Register</a></button>
+                </div>
+            </div>
+            <div class="eventcard">
+                <img src="{% static 'images/fbg_final.png' %}" alt="">
+                <div class="cardinfo">
+                    <p class="genre">Fashion</p>
+                    <h2 class="eventhead">EnVogue'24 - The Fashion Competition</h2>
+                    <p class="venue">Main Stage</p>
+                    <p class="time">2pm - 4pm</p>
+                    <button class="eventregister"><a href="">Register</a></button>
+                </div>
+            </div>
+            <div class="eventcard">
+                <img src="{% static 'images/fbg_final.png' %}" alt="">
+                <div class="cardinfo">
+                    <p class="genre">Fashion</p>
+                    <h2 class="eventhead">EnVogue'24 - The Fashion Competition</h2>
+                    <p class="venue">Main Stage</p>
+                    <p class="time">2pm - 4pm</p>
+                    <button class="eventregister"><a href="">Register</a></button>
+                </div>
+            </div>
+            <div class="eventcard">
+                <img src="{% static 'images/fbg_final.png' %}" alt="">
+                <div class="cardinfo">
+                    <p class="genre">Fashion</p>
+                    <h2 class="eventhead">EnVogue'24 - The Fashion Competition</h2>
+                    <p class="venue">Main Stage</p>
+                    <p class="time">2pm - 4pm</p>
+                    <button class="eventregister"><a href="">Register</a></button>
+                </div>
+            </div>
+            <div class="eventcard">
+                <img src="{% static 'images/fbg_final.png' %}" alt="">
+                <div class="cardinfo">
+                    <p class="genre">Fashion</p>
+                    <h2 class="eventhead">EnVogue'24 - The Fashion Competition</h2>
+                    <p class="venue">Main Stage</p>
+                    <p class="time">2pm - 4pm</p>
+                    <button class="eventregister"><a href="">Register</a></button>
+                </div>
+            </div>
+            <div class="eventcard">
+                <img src="{% static 'images/fbg_final.png' %}" alt="">
+                <div class="cardinfo">
+                    <p class="genre">Fashion</p>
+                    <h2 class="eventhead">EnVogue'24 - The Fashion Competition</h2>
+                    <p class="venue">Main Stage</p>
+                    <p class="time">2pm - 4pm</p>
+                    <button class="eventregister"><a href="">Register</a></button>
+                </div>
+            </div>
+            <div class="eventcard">
+                <img src="{% static 'images/fbg_final.png' %}" alt="">
+                <div class="cardinfo">
+                    <p class="genre">Fashion</p>
+                    <h2 class="eventhead">EnVogue'24 - The Fashion Competition</h2>
+                    <p class="venue">Main Stage</p>
+                    <p class="time">2pm - 4pm</p>
+                    <button class="eventregister"><a href="">Register</a></button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="socialmedia">
+                <a href="https://www.facebook.com/TRYSTKESHAV/"><img src="{% static 'images/facebook.png' %}" alt="" height="45px"
+                        width="45px"></a>
+                <a href="https://www.instagram.com/tryst_kmv/"><img src="{% static 'images/instagram.png' %}" alt="" height="45px"
+                        width="45px"></a>
+                <a href="https://www.youtube.com/channel/UC23C6Vghe1eROCsvEyM-4hQ"><img src="{% static 'images/x.png' %}" alt=""
+                        height="45px" width="45px"></a>
+            </div>
+            <h4 class="developed-by">Designed and Developed by <span class="ansh-juneja">Ansh Juneja</span></h4>
+            <div class="copyright">
+                <h3>
+                    Copyright © 2024 KMVTRYST
+                </h3>
+                <p class="rights">All Rights Reserved</p>
+            </div>
+        </footer>
+    </div>
+</body>
+<script>
+
+    // window.addEventListener("resize", () => {
+    //     location.reload()
+    // })
+    let width = window.screen.width
+    if (width < 735) {
+        let nav = document.getElementById("navbar")
+        nav.style.right = '-200px';
+        nav.style.display = 'none';
+        document.getElementById("menu").style.display = 'block';
+    } else {
+        document.getElementById("cut").style.display = 'none';
+        document.getElementById("menu").style.display = 'none';
+    }
+
+    const exitOut = () => {
+        let nav = document.getElementById("navbar")
+        nav.style.right = '-200px';
+        nav.style.transition = '0.5s';
+        setTimeout(() => {
+            nav.style.display = 'none';
+            document.getElementById("menu").style.display = 'block';
+        }, 200);
+    }
+
+    const menuOpen = () => {
+        let menu = document.getElementById("menu")
+        menu.style.display = 'none'
+        let nav = document.getElementById("navbar")
+        nav.style.display = 'block';
+        nav.style.right = '0px';
+        nav.style.transition = '0.2s';
+    }
+</script>
+
+>>>>>>> b6a570df02420777921a8fccab55259975563313
 </html>

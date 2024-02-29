@@ -1,65 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - TRYST'24</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static "css/contaacc.css" %}">
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'css/media.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contactmedia.css' %}">
 </head>
-<body class="cbg" style="background-image: url('{% static 'images/fbg.jpg' %}')">
-    <nav>
-        <input type="checkbox" id="check">
-        <label for="check" class="checkbtn">
-          <i class="fas fa-bars"></i>
-        </label>
-        <img class="logo" src="{% static 'images/trystlogo.png' %}" height="130px" width="150px">
-        <ul>
-          <li><a class="navlinks" href="{% url 'home' %}">Home</a></li>
-          <li><a class="navlinks" href="{% url 'events' %}">Events</a></li>
-          <li><a class="navlinks" href="#">Brochure</a></li>
-          <li><a class="navlinks" href="{% url 'contact' %}">Contact</a></li>
-          <li><a class="navlinks" href="#">Registration</a></li>
-        </ul>
-    </nav>
-    <div class="container df">
-        <div class="maincontainer df">
-            <img src="{% static 'images/trystcontact.jpg' %}" alt="" class="imgsz">
-            <div class="sidecontainer df">
-                <h1 class="query">Contact Us</h1>
-                {% if message %}
-                    <p class= "dispmsg">{{ message }}</p>
-                {% endif %}
-                <form method="post" action= "{% url 'contact' %}" class="df">
-                    {% csrf_token %}
-                    <div class="flexfields df">
-                        <input class="field" type="text" name="firstname" id="firstname" placeholder="First Name">
-                        <input class="field" type="text" name="lastname" id="lastname" placeholder="Last Name">
-                    </div>
-                    <input class="email" type="email" name="usremail" id="usremail" placeholder="Email ID">
-                    <textarea class="description" name="description" id="description"
-                        placeholder="Write Your Description Here..."></textarea>
-                    <button type="submit" class="subbtn">Submit</button>
-                </form>
+
+<body class="cbg">
+    <header id="header">
+        <nav class="df navbar">
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <img class="logo" src="{% static 'images/trystlogo.png' %}">
+            <div class="menu" id="menu"><img src="{% static 'images/menu.png' %}" alt="" onclick="menuOpen()"></div>
+            <ul class="df navlist" id="navbar">
+                <div id="navrbaritem">
+                    <img src="{% static 'images/cut.png' %}" alt="" id="cut" onclick="exitOut()">
+                    <li><a class="navlinks" href="{% url 'home' %}">Home</a></li>
+                    <li><a class="navlinks" href="{% url 'events' %}">Events</a></li>
+                    <li><a class="navlinks" href="{% url 'contact' %}">Contact</a></li>
+                    <li><a class="navlinks" href="{%url 'registration' %}">Registration</a></li>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <div class=" df bodyContainer">
+        <div class="container df">
+            <div class="df top-heading" id="topheading">
+                <h1 class="heading">Contact Us</h1>
+                <img class="underfancy" src="{% static 'images/fancyunderline.png' %}" alt="">
+            </div>
+            <div class="maincontainer df" onscroll="shadow()">
+                <img src="{% static 'images/trystcontact.jpg' %}" alt="" class="imgsz">
+                <div class="sidecontainer df">
+                    <h1 class="query" id="query">Contact Us</h1>
+                    <form class="df form" action="{% url 'contact' %}" method="post">
+                        {% csrf_token %}
+                        <div class="flexfields df">
+                            <input required class="field" type="text" name="firstname" id="firstname"
+                                placeholder="First Name">
+                            <input required class="field" type="text" name="lastname" id="lastname"
+                                placeholder="Last Name">
+                        </div>
+                        <input required class="email" type="email" name="usremail" id="usremail" placeholder="Email ID">
+                        <textarea required class="description" name="description" id="description" maxlength="200"
+                            placeholder="Write Your Description Here..."></textarea>
+                        <div class="btn">
+                            <button type="submit" class="subbtn" onsubmit="">Submit</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
+        <footer>
+            <div class="socialmedia">
+                <a href="https://www.facebook.com/TRYSTKESHAV/"><img src="{% static 'images/facebook.png' %}" alt=""
+                        height="45px" width="45px"></a>
+                <a href="https://www.instagram.com/tryst_kmv/"><img src="{% static 'images/instagram.png' %}" alt=""
+                        height="45px" width="45px"></a>
+                <a href="https://www.youtube.com/channel/UC23C6Vghe1eROCsvEyM-4hQ"><img
+                        src="{% static 'images/x.png' %}" alt="" height="45px" width="45px"></a>
+            </div>
+            <h4 class="developed-by">Designed and Developed by <span class="ansh-juneja">Ansh Juneja</span></h4>
+            <div class="copyright">
+                <h3>
+                    Copyright © 2024 KMVTRYST
+                </h3>
+                <p class="rights">All Rights Reserved</p>
+            </div>
+        </footer>
     </div>
-    <footer>
-        <div class="socialmedia">
-            <a href="https://www.facebook.com/TRYSTKESHAV/"><img src="{% static 'images/facebook.png' %}" alt="" height="45px"
-                    width="45px"></a>
-            <a href="https://www.instagram.com/tryst_kmv/"><img src="{% static 'images/instagram.png' %}" alt="" height="45px"
-                    width="45px"></a>
-            <a href="https://www.youtube.com/channel/UC23C6Vghe1eROCsvEyM-4hQ"><img src="{% static 'images/x.png' %}"
-                    alt="" height="45px" width="45px"></a>
-        </div>
-        <h4 class="developed-by">Designed and Developed by <span class="ansh-juneja">Ansh Juneja</span></h4>
-        <div class="copyright">
-            <h3>
-                Copyright © 2024 KMVTRYST
-            </h3>
-            <p class="rights">All Rights Reserved</p>
-        </div>
-    </footer>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+
+    <script>
+
+        function receiveMail() {
+            const fname = document.getElementById("firstname");
+            const lname = document.getElementById("lastname");
+            const email = document.getElementById("usremail");
+            const desc = document.getElementById("description");
+
+            let emailbody = `
+            <b> Name: </b> ${fname.value} ${lname.value}
+            <br/> 
+            <b> Email ID: </b> ${email.value}
+            <br/> 
+            <b> Query: </b> ${desc.value}
+            <br/> 
+            `
+            Email.send({
+                SecureToken: "a966b3a6-7ce4-4872-bc3e-367160a20fa1",
+                To: 'tryst24kmv@gmail.com',
+                From: "tryst24kmv@gmail.com",
+                Subject: "New Query From TRYST Portal",
+                Body: emailbody,
+            }).then(
+                message => alert(message)
+            );
+        }
+
+        function sendMail() {
+            const email = document.getElementById("usremail");
+            Email.send({
+                SecureToken: "a966b3a6-7ce4-4872-bc3e-367160a20fa1",
+                To: document.getElementById("email").value,
+                From: "tryst24kmv@gmail.com",
+                Subject: "Confirmation Mail",
+                Body: "<b> Thanks for contacting us, your query will be resolved within 24 hours </b>",
+            })
+        }
+    </script>
 </body>
+<script>
+    // window.addEventListener("resize", () => {
+    //     location.reload()
+    // })
+    let width = window.screen.width
+    if (width < 735) {
+        let nav = document.getElementById("navbar")
+        nav.style.right = '-200px';
+        nav.style.display = 'none';
+        document.getElementById("menu").style.display = 'block';
+
+    } else {
+        document.getElementById("cut").style.display = 'none';
+        document.getElementById("menu").style.display = 'none';
+    }
+    if (width < 770) {
+        document.getElementById("query").style.display = 'none';
+        document.getElementById("topheading").style.display = 'flex';
+    } else {
+        document.getElementById("topheading").style.display = 'none';
+        document.getElementById("query").style.display = 'flex';
+    }
+
+    const exitOut = () => {
+        let nav = document.getElementById("navbar")
+        nav.style.right = '-200px';
+        nav.style.transition = '0.5s';
+        setTimeout(() => {
+            nav.style.display = 'none';
+            document.getElementById("menu").style.display = 'block';
+        }, 200);
+    }
+
+    const menuOpen = () => {
+        let menu = document.getElementById("menu")
+        menu.style.display = 'none'
+        let nav = document.getElementById("navbar")
+        nav.style.display = 'block';
+        nav.style.right = '0px';
+        nav.style.transition = '0.2s';
+    }
+</script>
+
 </html>
