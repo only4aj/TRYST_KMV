@@ -41,7 +41,8 @@
                 <img src="{% static 'images/trystcontact.jpg' %}" alt="" class="imgsz">
                 <div class="sidecontainer df">
                     <h1 class="query" id="query">Contact Us</h1>
-                    <form class="df form" onsubmit="receiveMail(); reset(); return false;">
+                    <form class="df form" action="{% url 'contact' %}" method="post">
+                        {% csrf_token %}
                         <div class="flexfields df">
                             <input required class="field" type="text" name="firstname" id="firstname"
                                 placeholder="First Name">
@@ -52,7 +53,7 @@
                         <textarea required class="description" name="description" id="description" maxlength="200"
                             placeholder="Write Your Description Here..."></textarea>
                         <div class="btn">
-                            <button type="submit" class="subbtn" onsubmit="sendMail()">Submit</button>
+                            <button type="submit" class="subbtn" onsubmit="">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -108,7 +109,6 @@
 
         function sendMail() {
             const email = document.getElementById("usremail");
-
             Email.send({
                 SecureToken: "a966b3a6-7ce4-4872-bc3e-367160a20fa1",
                 To: document.getElementById("email").value,
