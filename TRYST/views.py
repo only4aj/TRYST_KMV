@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .models import RegistrationForm
 from django.core.mail import send_mail
-from django.conf.global_settings import EMAIL_HOST_USER,EMAIL_HOST_PASSWORD
+from django.conf.global_settings import EMAIL_HOST_USER, EMAIL_HOST_PASSWORD
 
 
 # Create your views here.
@@ -10,19 +10,20 @@ def home(request):
 
 
 def contact(request):
-    firstname = request.POST.get("firstname","")
-    lastname = request.POST.get("lastname","")
-    usermail = request.POST.get("usremail","")
-    message = request.POST.get("description","")
+    firstname = request.POST.get("firstname", "")
+    lastname = request.POST.get("lastname", "")
+    usermail = request.POST.get("usremail", "")
+    message = request.POST.get("description", "")
 
-    from_email = 'tryst24kmv@gmail.com'
-    recipient_list = ['tryst24kmv@gmail.com']
+    from_email = "tryst24kmv@gmail.com"
+    recipient_list = ["tryst24kmv@gmail.com"]
     subject = "New Query From TRYST Portal"
-    message = f'Name: {firstname} {lastname}\nEmail ID: {usermail}\nQuery: {message}'
+    message = f"Name: {firstname} {lastname}\nEmail ID: {usermail}\nQuery: {message}"
     if firstname and lastname and usermail and message:
-        send_mail(subject,message,from_email,recipient_list)
+        send_mail(subject, message, from_email, recipient_list)
         return redirect("contact")
     return render(request, "contact.html")
+
 
 def events(request):
     return render(request, "events.html")
@@ -31,36 +32,62 @@ def events(request):
 def registration(request):
     name = request.POST.get("name", "")
     phone = request.POST.get("phone", "")
-    dob = request.POST.get("dob", "")
     email = request.POST.get("email", "")
     collegeName = request.POST.get("collegeName", "")
     image = request.POST.get("image", "")
 
-    if not (name and phone and dob and email and collegeName and image):
+    if not (name and phone and email and collegeName and image):
         return render(request, "registration.html")
 
     data = RegistrationForm.objects.all()
-    for i in data:
-        if i.email == email:
-            print(i.email," Matched Found")
-            # break
+    check = False
 
+    # for i in data:
+    #     if i.email == email:
+    #         check = True
+    #         break
+    #     else:
+    #         check = False
+
+    # if check:
+    #     return render(request,'registration.html',{"status":""})
+    # else:
+
+    subject = "By KMV Tryst OTP"
+    message = ""
+
+    dicData = {
+        "name": name,
+        "phone": phone,
+        "email": email,
+        "collegeName": collegeName,
+        "StdIDCard": image,
+    }
     registrationData = RegistrationForm(
         name=name,
         phone=phone,
-        dob=dob,
         email=email,
         collegeName=collegeName,
         StdIDCard=image,
     )
     registrationData.save()
-    return redirect("home")
+    # return redirect("home")
+    return direct()
 
 
-def send_email(subject,message,receiver):
+def direct():
+    return redirect("contact")
+
+
+def send_email(subject, message, receiver):
     subject = subject
     message = message
     from_email = EMAIL_HOST_USER
     recipient_list = [receiver]
-    
-    send_mail(subject , message , from_email , recipient_list)
+
+    send_mail(subject, message, from_email, recipient_list)
+
+
+def otp_verfication():
+
+    return redirect("home")

@@ -1,3 +1,19 @@
+@media (max-width:1100px) and (min-width:1026px){
+    .trystinfo {
+        height: auto;
+        flex-wrap: wrap-reverse;
+        margin-bottom: -5px;
+        gap: 0;
+    }
+
+    .leftside{
+        font-size: 22px;
+    }
+
+    .leftside p{
+        font-size: 14px;
+    }
+}
 @media (max-width:1025px) {
     .mainhead {
         margin-top: 90px;
