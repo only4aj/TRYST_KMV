@@ -42,7 +42,8 @@
                         <h1><Span class="badge bg-secondary">Registration Form</Span></h1>
                     </div>
                     <!-- <form onsubmit="dataSubmit()"> -->
-                    <form>
+                    <form method="post">
+                        {% csrf_token%}
                         <div class="mb-3">
                             <label for="name" class="form-label">Enter Name</label>
                             <input type="text" class="form-control" onkeyup="checkName()" id="name" name="name" required
@@ -54,13 +55,8 @@
                                 name="phone" required aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
-                            <label for="dob" class="form-label">Enter Date of Birth</label>
-                            <input type="date" class="form-control" id="dob" name="dob" required
-                                aria-describedby="emailHelp">
-                        </div>
-                        <div class="mb-3">
                             <label for="collegeNme" class="form-label">Enter College Name</label>
-                            <input type="text" class="form-control" id="collegeNme" name="collegeNme" required
+                            <input type="text" class="form-control" id="collegeNme" name="collegeName" required
                                 aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
@@ -69,11 +65,7 @@
                                 onkeyup="checkEmail()" id="email" name="email" required aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
-                            <label for="aadhar" class="form-label">Upload Aadhar Card</label>
-                            <input type="file" class="form-control" id="aadhar" name="aadhar" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="image" class="form-label">Upload Your Image</label>
+                            <label for="image" class="form-label">Upload Your College ID Card</label>
                             <input type="file" class="form-control" id="image" name="image" required>
                         </div>
                         <button disabled id="btn" type="submit" class="btn btn-primary">Submit</button>
@@ -99,7 +91,7 @@
     const checkName = () => {
         let name = document.getElementById("name").value
 
-        if (name.replace(/\D/gm, "") !== "") {
+        if (name.match(/[A-Za-z ]/gm).length !== name.length) {
             console.log(name.replace(/\D/gm, ""))
             alert.display = 'block'
             alert.color = 'red'
@@ -152,6 +144,17 @@
             alert.display = 'none'
             btn.disabled = false;
         }
+    }
+
+    function sendMail() {
+        const email = document.getElementById("usremail");
+        Email.send({
+            SecureToken: "a966b3a6-7ce4-4872-bc3e-367160a20fa1",
+            To: document.getElementById("email").value,
+            From: "tryst24kmv@gmail.com",
+            Subject: "Confirmation Mail",
+            Body: "<b> Thanks for contacting us, your query will be resolved within 24 hours </b>",
+        })
     }
 
 </script>

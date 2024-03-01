@@ -188,6 +188,11 @@ form {
   cursor: pointer;
 }
 
+.subbtn:disabled {
+  background: #542121;
+  color: grey;
+}
+
 .imgsz {
   width: 500px;
   height: 500px;
@@ -306,7 +311,7 @@ nav {
   margin-top: -20px;
 }
 
-header{
+header {
   position: sticky;
   z-index: 1;
   top: 0;

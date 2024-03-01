@@ -25,7 +25,7 @@ class RegistrationForm(models.Model):
     UID = models.IntegerField(default=0)
     otp = models.IntegerField(default=0)
     entryTime = models.IntegerField(default=0)
-    Std_qr_code = models.ImageField(blank=True, upload_to="images")
+    Std_qr_code = models.ImageField(blank=True, upload_to="code")
 
     def __str__(self) -> str:
         return self.name

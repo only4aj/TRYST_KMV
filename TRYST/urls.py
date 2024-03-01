@@ -10,6 +10,7 @@ urlpatterns = [
     path('contact/' , views.contact , name = 'contact'),
     path('events/' , views.events , name = "events"),
     path('registration/' , views.registration , name = "registration"),
+    path('otp_verification/' , views.otp_verfication , name = "otp"),
 ]
 
 
