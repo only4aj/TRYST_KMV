@@ -188,8 +188,8 @@ def otp_verfication(request):
 
 def viewprofile(request , link):
     if request.session["email"] in ["onlyforanshjuneja@gmail.com" , "shivmondal0132@gmail.com"]:
-        print(request)
-        print(link)
+        # print(request)
+        # print(link)
         return render(request , "viewprofile.html")
     
     else:
