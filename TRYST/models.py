@@ -3,6 +3,7 @@ import qrcode
 from io import BytesIO
 from django.core.files import File
 from PIL import Image
+import random
 
 
 # Create your models here.
@@ -33,9 +34,9 @@ class RegistrationForm(models.Model):
     def save(self, *args, **kwargs):
         data = f"Student Name : {self.name}\nPhone Number : {self.phone}\nCollege Name : {self.collegeName}\nEmail : {self.email}\n Image : {self.StdIDCard}\n\nVERIFIED USER"
         qr_image = qrcode.make(data)
-        qr_offset = Image.new("RGB", (600, 600), "white")
+        qr_offset = Image.new("RGB", (600, 600), "blue")
         qr_offset.paste(qr_image)
-        files_name = f"{self.name}.png"
+        files_name = f"{self.name}_{self.phone}_{random.randint(100000,999999)}.png"
         stream = BytesIO()
         qr_offset.save(stream, "PNG")
         self.Std_qr_code.save(files_name, File(stream), save=False)
