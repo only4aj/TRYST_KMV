@@ -12,25 +12,8 @@
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
-<body>
-    <!-- <header>
-        <nav class="df navBar">
-            <img class="logo" src="images/trystlogo.png">
-            <div id="menu" class="menu">
-                <img src="/images/menu.png" onclick="menuOpen()" alt="">
-            </div>
-            <ul id="navbar" class="navlist">
-                <div class="navbaritem" id="navbaritem">
-                    <img src="/images/cut.png" id="cut" alt="" onclick="exitOut()">
-                    <li id="li"><a class="navlinks" href="/">Home</a></li>
-                    <li><a class="navlinks" id="navlinks" href="/events.html">Events</a></li>
-                    <li><a class="navlinks" href="contact.html">Contact</a></li>
-                    <li><a class="navlinks" href="">Registration</a></li>
-                </div>
-            </ul>
-        </nav>
-    </header> -->
-    <main>
+<body class="bg-dark">
+    <main class="d-flex justify-content-center align-items-center">
         <div class="container">
             <div class="d-flex  justify-content-center">
                 <div class="form d-flex flex-column align-items-center justify-content-center">
@@ -51,7 +34,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="form-label">Enter Phone</label>
-                            <input type="tel" class="form-control" value="000" onkeyup="checkPhone()" id="phone"
+                            <input type="tel" class="form-control" onkeyup="checkPhone()" id="phone"
                                 name="phone" required aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
@@ -68,7 +51,10 @@
                             <label for="image" class="form-label">Upload Your College ID Card</label>
                             <input type="file" class="form-control" id="image" name="image" required>
                         </div>
-                        <button disabled id="btn" type="submit" class="btn btn-primary">Submit</button>
+                        <div class="d-flex justify-content-between">
+                            <button disabled id="btn" type="submit" class="btn btn-primary mx-3">Submit</button>
+                            <a class="btn btn-primary mx-3" href="{%url 'home'%}" role="button">&larr; Home</a>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -90,17 +76,17 @@
 
     const checkName = () => {
         let name = document.getElementById("name").value
-
-        if (name.match(/[A-Za-z ]/gm).length !== name.length) {
-            console.log(name.replace(/\D/gm, ""))
+        let num = name.match(/[A-Za-z ]/gm)
+        num === null ? num = 0 : num = name.match(/[A-Za-z ]/gm).length;
+        if (num === name.length) {
+            alert.display = 'none'
+            btn.disabled = false;
+        }
+        else {
             alert.display = 'block'
             alert.color = 'red'
             error.innerText = 'Only Alphabets are allowed'
             btn.disabled = true;
-        }
-        else {
-            alert.display = 'none'
-            btn.disabled = false;
         }
     }
 

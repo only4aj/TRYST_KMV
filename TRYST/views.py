@@ -68,6 +68,12 @@ def registration(request):
     if not (name and phone and email and collegeName and image):
         return render(request, "registration.html")
     
+    d = RegistrationForm.objects.filter(email=email).values()
+    status = True
+    if len(d) != 0:
+        status = False
+        return render(request, "verification.html", {"status": status, "email": email})
+    
     # session = SessionStore()
     request.session.create()
     request.session["name"] = name
@@ -82,7 +88,7 @@ def registration(request):
     request.session.save()
 
     print(request.session.session_key)
-    return render(request , "verification.html")
+    return render(request , "verification.html",{"status":True,"email":email})
 
     
     # data = RegistrationForm.objects.all()
@@ -179,7 +185,7 @@ def otp_verfication(request):
 
 
         Session.objects.filter(session_key=session_id).delete()
-        return render(request , "contact.html")
+        return render(request , "success.html")
     
     else:
         Session.objects.filter(session_key=session_id).delete()
