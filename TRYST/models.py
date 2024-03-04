@@ -23,7 +23,7 @@ class RegistrationForm(models.Model):
     collegeName = models.CharField(max_length=200)
     email = models.EmailField()
     StdIDCard = models.ImageField(upload_to="images")
-    UID = models.IntegerField(default=0)
+    UID = models.CharField(max_length=7)
     otp = models.IntegerField(default=0)
     entryTime = models.IntegerField(default=0)
     Std_qr_code = models.ImageField(blank=True, upload_to="code")
@@ -32,7 +32,8 @@ class RegistrationForm(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        data = f"Student Name : {self.name}\nPhone Number : {self.phone}\nCollege Name : {self.collegeName}\nEmail : {self.email}\n Image : {self.StdIDCard}\n\nVERIFIED USER"
+        # data = f"Student Name : {self.name}\nPhone Number : {self.phone}\nCollege Name : {self.collegeName}\nEmail : {self.email}\n Image : {self.StdIDCard}\n\nVERIFIED USER"
+        data = self.UID
         qr_image = qrcode.make(data)
         qr_offset = Image.new("RGB", (600, 600), "blue")
         qr_offset.paste(qr_image)
