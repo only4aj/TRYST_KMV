@@ -10,6 +10,7 @@ from django.utils.html import strip_tags
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
 import random
 import os
 import django
@@ -66,16 +67,32 @@ def registration(request):
     phone = request.POST.get("phone", "")
     email = request.POST.get("email", "")
     collegeName = request.POST.get("collegeName", "")
-    image = request.POST.get("image", "")
+    image = request.FILES.get("image")
 
     if not (name and phone and email and collegeName and image):
         return render(request, "registration.html")
     
-    d = RegistrationForm.objects.filter(email=email).values()
-    status = True
-    if len(d) != 0:
-        status = False
-        return render(request, "verification.html", {"status": status, "email": email})
+
+    if image:  # Make sure an image was uploaded
+        # Define the directory where you want to save the image
+        image_directory = os.path.join(settings.MEDIA_ROOT, 'images')
+        os.makedirs(image_directory, exist_ok=True)
+
+        filename = os.path.join(image_directory, f"{name[0:3]}_{phone}_{random.randint(100000,999999)}_img.png")
+
+        with open(filename, 'wb+') as destination:
+            for chunk in image.chunks():
+                destination.write(chunk)
+        
+        # Store the path of the saved file in the session
+
+
+
+    # d = RegistrationForm.objects.filter(email=email).values()
+    # status = True
+    # if len(d) != 0:
+    #     status = False
+    #     return render(request, "verification.html", {"status": status, "email": email})
     
     # session = SessionStore()
     request.session.create()
@@ -83,7 +100,8 @@ def registration(request):
     request.session["phone"] = phone
     request.session["email"] = email
     request.session["collegeName"] = collegeName
-    request.session["image"] = image
+    # request.session["image"] = image
+    request.session["image"] = filename
     
     otp = send_otp(request,email)
 

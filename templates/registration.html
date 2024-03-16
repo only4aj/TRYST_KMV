@@ -25,7 +25,7 @@
                         <h1><Span class="badge bg-secondary">Registration Form</Span></h1>
                     </div>
                     <!-- <form onsubmit="dataSubmit()"> -->
-                    <form method="post">
+                    <form method="post" enctype="multipart/form-data">
                         {% csrf_token%}
                         <div class="mb-3">
                             <label for="name" class="form-label">Enter Name</label>

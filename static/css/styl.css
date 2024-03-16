@@ -298,7 +298,7 @@ nav ul li a {
 
 .quotes {
   color: goldenrod;
-  font-size: 45px;
+  font-size: 60px;
   font-family: Helvetica, Arial, and Open Sans;
   position: relative;
   width: 100%;
@@ -312,7 +312,7 @@ nav ul li a {
 .q2 {
   text-align: center;
   top: -30px;
-  left: 90px;
+  left: -20px;
 }
 
 .sponsor-heading {
