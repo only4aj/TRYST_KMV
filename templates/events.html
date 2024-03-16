@@ -8,6 +8,7 @@
     <title>Events - TRYST'24</title>
     <link rel="stylesheet" href="{% static 'css/events.css' %}">
     <link rel="stylesheet" href="{% static 'css/media.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animation.css' %}">
 </head>
 
 <body class="cbg">
@@ -34,17 +35,8 @@
             <img class="underfancy" src="{% static 'images/fancyunderline.png' %}" alt="">
         </div>
         <div class="cardstack df cards">
-            <div class="eventcard">
-                <img src="{% static 'images/fbg_final.png' %}" alt="">
-               <div class="cardinfo">
-                    <p class="genre">Fashion</p>
-                    <h2 class="eventhead">EnVogue'24 - The Fashion Competition</h2>
-                    <p class="venue">Main Stage</p>
-                    <p class="time">2pm - 4pm</p>
-                    <button class="eventregister"><a href="">Register</a></button>
-                </div>
-            </div>
-            <div class="eventcard">
+            <!-- <div class="df boxCard card1"> -->
+            <div class="eventcard box1" style="--i:1">
                 <img src="{% static 'images/fbg_final.png' %}" alt="">
                 <div class="cardinfo">
                     <p class="genre">Fashion</p>
@@ -54,7 +46,7 @@
                     <button class="eventregister"><a href="">Register</a></button>
                 </div>
             </div>
-            <div class="eventcard">
+            <div class="eventcard box2" style="--i:2">
                 <img src="{% static 'images/fbg_final.png' %}" alt="">
                 <div class="cardinfo">
                     <p class="genre">Fashion</p>
@@ -64,7 +56,7 @@
                     <button class="eventregister"><a href="">Register</a></button>
                 </div>
             </div>
-            <div class="eventcard">
+            <div class="eventcard box3" style="--i:3">
                 <img src="{% static 'images/fbg_final.png' %}" alt="">
                 <div class="cardinfo">
                     <p class="genre">Fashion</p>
@@ -74,7 +66,9 @@
                     <button class="eventregister"><a href="">Register</a></button>
                 </div>
             </div>
-            <div class="eventcard">
+            <!-- </div>
+            <div class="df boxCard card2"> -->
+            <div class="eventcard box4" style="--i:4">
                 <img src="{% static 'images/fbg_final.png' %}" alt="">
                 <div class="cardinfo">
                     <p class="genre">Fashion</p>
@@ -84,7 +78,7 @@
                     <button class="eventregister"><a href="">Register</a></button>
                 </div>
             </div>
-            <div class="eventcard">
+            <div class="eventcard box5" style="--i:5">
                 <img src="{% static 'images/fbg_final.png' %}" alt="">
                 <div class="cardinfo">
                     <p class="genre">Fashion</p>
@@ -94,7 +88,7 @@
                     <button class="eventregister"><a href="">Register</a></button>
                 </div>
             </div>
-            <div class="eventcard">
+            <div class="eventcard box6" style="--i:6">
                 <img src="{% static 'images/fbg_final.png' %}" alt="">
                 <div class="cardinfo">
                     <p class="genre">Fashion</p>
@@ -104,7 +98,9 @@
                     <button class="eventregister"><a href="">Register</a></button>
                 </div>
             </div>
-            <div class="eventcard">
+            <!-- </div>
+            <div class="df boxCard card3"> -->
+            <div class="eventcard box7" style="--i:7">
                 <img src="{% static 'images/fbg_final.png' %}" alt="">
                 <div class="cardinfo">
                     <p class="genre">Fashion</p>
@@ -114,28 +110,87 @@
                     <button class="eventregister"><a href="">Register</a></button>
                 </div>
             </div>
+            <div class="eventcard box8" style="--i:8">
+                <img src="{% static 'images/fbg_final.png' %}" alt="">
+                <div class="cardinfo">
+                    <p class="genre">Fashion</p>
+                    <h2 class="eventhead">EnVogue'24 - The Fashion Competition</h2>
+                    <p class="venue">Main Stage</p>
+                    <p class="time">2pm - 4pm</p>
+                    <button class="eventregister"><a href="">Register</a></button>
+                </div>
+            </div>
+            <!-- </div> -->
         </div>
-
-        <footer>
-            <div class="socialmedia">
-                <a href="https://www.facebook.com/TRYSTKESHAV/"><img src="{% static 'images/facebook.png' %}" alt="" height="45px"
-                        width="45px"></a>
-                <a href="https://www.instagram.com/tryst_kmv/"><img src="{% static 'images/instagram.png' %}" alt="" height="45px"
-                        width="45px"></a>
-                <a href="https://www.youtube.com/channel/UC23C6Vghe1eROCsvEyM-4hQ"><img src="{% static 'images/x.png' %}" alt=""
-                        height="45px" width="45px"></a>
-            </div>
-            <h4 class="developed-by">Designed and Developed by <span class="ansh-juneja">Ansh Juneja</span></h4>
-            <div class="copyright">
-                <h3>
-                    Copyright © 2024 KMVTRYST
-                </h3>
-                <p class="rights">All Rights Reserved</p>
-            </div>
-        </footer>
+    </div>
+    <footer>
+        <div class="socialmedia">
+            <a href="https://www.facebook.com/TRYSTKESHAV/"><img src="{% static 'images/facebook.png' %}" alt=""
+                    height="45px" width="45px"></a>
+            <a href="https://www.instagram.com/tryst_kmv/"><img src="{% static 'images/instagram.png' %}" alt=""
+                    height="45px" width="45px"></a>
+            <a href="https://www.youtube.com/channel/UC23C6Vghe1eROCsvEyM-4hQ"><img src="{% static 'images/x.png' %}"
+                    alt="" height="45px" width="45px"></a>
+        </div>
+        <h4 class="developed-by">Designed and Developed by <span class="ansh-juneja">Ansh Juneja</span></h4>
+        <div class="copyright">
+            <h3>
+                Copyright © 2024 KMVTRYST
+            </h3>
+            <p class="rights">All Rights Reserved</p>
+        </div>
+    </footer>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
+
+
+    var window = $(window)
+    var box1 = $('.box1')
+    var box2 = $('.box2')
+    var box3 = $('.box3')
+    var box4 = $('.box4')
+    var box5 = $('.box5')
+    var box6 = $('.box6')
+    var box7 = $('.box7')
+    var box8 = $('.box8')
+
+    function isScroll(elem, window) {
+        var docViewTop = $(window).scrollTop();
+        var docViewBotton = $(window).height() + docViewTop;
+
+        var elemTop = $(elem).offset().top;
+        var elemBotton = elem.height() + elemTop;
+        return ((elemTop < docViewBotton));
+    }
+
+    // if (isScroll(card1, window)) {
+    box1.addClass('zoomin')
+    box2.addClass('zoomin')
+    box3.addClass('zoomin')
+    // }
+    $(window).on('scroll', () => {
+        if (isScroll(box4, window)) {
+            box4.addClass('zoomin')
+        }
+        if (isScroll(box5, window)) {
+            box5.addClass('zoomin')
+        }
+        if (isScroll(box5, window)) {
+            box5.addClass('zoomin')
+        }
+        if (isScroll(box6, window)) {
+            box6.addClass('zoomin')
+        }
+        if (isScroll(box7, window)) {
+            box7.addClass('zoomin')
+        }
+        if (isScroll(box8, window)) {
+            box8.addClass('zoomin')
+        }
+    })
 
     // window.addEventListener("resize", () => {
     //     location.reload()

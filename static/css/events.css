@@ -136,12 +136,16 @@ nav ul li a {
   gap: 10px;
   border: 5px solid rgb(255, 255, 170);
   border-radius: 20px;
+  position: relative;
+  opacity: 0;
+  top: 0;
 }
 
 .eventcard:hover {
   box-shadow: 0px 0px 20px rgb(250, 248, 248);
   transition: 0.5s;
   cursor: pointer;
+  top: -10px;
 }
 
 .eventcard img {
@@ -173,6 +177,10 @@ nav ul li a {
   font-size: 15px;
 }
 
+.eventregister:hover{
+  cursor: pointer;
+}
+
 .eventregister a {
   text-decoration: none;
   color: crimson;
@@ -191,6 +199,10 @@ nav ul li a {
   margin-top: 10px; */
   flex-wrap: wrap;
   margin-bottom: 50px;
+}
+
+.cards{
+  margin-top: 20px;
 }
 
 .heading {
@@ -294,4 +306,19 @@ header {
 
 #cut:hover {
   cursor: pointer;
+}
+
+
+.boxCard{
+  width: 100%;
+  justify-content: space-evenly;
+}
+/* .box1{
+  animation: zoomIn 0.5s ease forwards;
+  animation-delay: calc(0.2s*var(--i));
+} */
+/* Animation Class */
+.zoomin{
+  animation: zoomIn 0.5s ease forwards;
+  animation-delay: calc(0.2s*var(--i));
 }

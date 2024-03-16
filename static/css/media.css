@@ -1,66 +1,67 @@
-
 .logo {
     width: 130px;
     height: 110px;
-  }
-  
-  nav {
+}
+
+nav {
     background: rgb(21, 21, 21);
     width: 100dvw;
-  }
-  
-  .navbar {
+}
+
+.navbar {
     justify-content: space-between;
     height: 80px;
 }
 
-.navBar{
-      justify-content: space-between;
-      /* height: 80px; */
-  }
-  
-  .btn {
+.navBar {
+    justify-content: space-between;
+    /* height: 80px; */
+}
+
+.btn {
     width: 100%;
     text-align: center;
-  }
-  
-  #cut {
+}
+
+#cut {
     display: block;
-  }
-  
-  
-  .top-heading {
+}
+
+
+.top-heading {
     flex-direction: column;
     width: 100vw;
     height: 100px;
-  }
-  
-  .heading {
+}
+
+.heading {
     color: rgb(255, 255, 170);
     font-size: 50px;
-  }
-  
-  .underfancy {
+}
+
+.underfancy {
     width: 400px;
     height: 50px;
     margin-top: -20px;
-  }
+}
 
-  .artist{
+.artist {
     width: 500px;
     height: 55px;
     margin-top: -15px;
-  }
-  
-  header{
+}
+
+header {
     position: sticky;
     z-index: 1;
     top: 0;
     box-shadow: 0 0 5px grey;
-  }
-  .underfancy1{
+}
+
+.underfancy1 {
     margin-top: -35px;
-  }
+}
+
 /* @media (max-width:2561px) {
     .eventcard {
         width: 470px;
@@ -116,13 +117,14 @@
         height: 70px;
     }
 
-    .menu img{
+    .menu img {
         width: 40px;
     }
 
-    #cut{
+    #cut {
         width: 45px;
     }
+
     .navlinks {
         font-size: 16px;
     }
@@ -146,7 +148,7 @@
     }
 
     footer {
-        margin-top: 0px;
+        margin-top: -5px;
         height: 200px;
         gap: 10px;
         font-size: 14px;
@@ -156,6 +158,10 @@
         gap: 30px;
     }
 
+    .boxCard {
+        flex-wrap: wrap;
+        gap: 60px;
+    }
 }
 
 @media (max-width:770px) {
@@ -197,10 +203,11 @@
 }
 
 @media (max-width:430px) {
-    .logo{
+    .logo {
         width: 100px;
         height: 80px;
     }
+
     .heading {
         font-size: 30px;
     }
@@ -244,15 +251,29 @@
         width: 40px;
         height: 40px;
     }
-#li{
-    display: block;
-}
+
+    #li {
+        display: block;
+    }
 
 }
 
 @media (max-width:380px) {
     .cardstack {
         gap: 20px;
+    }
+}
+
+@media (max-width:366px) {
+    .eventcard {
+        width: 215px;
+        height: 360px;
+    }
+
+    .eventregister {
+        width: 200px;
+        font-size: 20px;
+        margin-top: 20px;
     }
 }
 
@@ -270,12 +291,4 @@
     .cardinfo {
         font-size: 12px;
     }
-}
-
-@media (max-width:366px) {
-    .eventcard {
-        width: 215px;
-        height: 360px;
-    }
-    
 }

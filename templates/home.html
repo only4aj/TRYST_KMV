@@ -1,65 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - TRYST'24</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styl.css' %}">
-</head>
-<body class="bg" style="background-image: url('{% static 'images/fbg_final.png' %}')">
-  <nav>
-    <input type="checkbox" id="check">
-    <label for="check" class="checkbtn">
-      <i class="fas fa-bars"></i>
-    </label>
-    <img class="logo" src="{% static 'images/trystlogo.png' %}" height="130px" width="150px">
-    <ul>
-      <li><a class="navlinks" href="#">Home</a></li>
-      <li><a class="navlinks" href="#">Events</a></li>
-      <li><a class="navlinks" href="#">Brochure</a></li>
-      <li><a class="navlinks" href="#">Contact</a></li>
-      <li><a class="navlinks" href="#">Registration</a></li>
-    </ul>
-  </nav>
-  <div class="mainhead">
-    <h1 class="headline">TRYST</h1>
-    <h3 class="tagline">6 - 7 March 2024</h3>
-  </div>
-  <button class="mainbtn"><a href="#">Explore</a></button>
-  <div class="sponsors">
-    <h1 class="sponsorhead">Sponsors</h1>
-    <div class="slider">
-      <div class="slide-track">
-        <div class="slide">
-          <img src="{% static 'images/cokelogo.jpg' %}" alt="" height="100px" width="150px">
-        </div>
-        <div class="slide">
-          <img src="{% static 'images/cokelogo.jpg' %}" alt="" height="100px" width="150px">
-        </div>
-        <div class="slide">
-          <img src="{% static 'images/cokelogo.jpg' %}" alt="" height="100px" width="150px">
-        </div>
-        <div class="slide">
-          <img src="{% static 'images/cokelogo.jpg' %}" alt="" height="100px" width="150px">
-        </div>
-        <div class="slide">
-          <img src="{% static 'images/cokelogo.jpg' %}" alt="" height="100px" width="150px">
-        </div>
-        <div class="slide">
-          <img src="{% static 'images/cokelogo.jpg' %}" alt="" height="100px" width="150px">
-        </div>
-        <div class="slide">
-          <img src="{% static 'images/cokelogo.jpg' %}" alt="" height="100px" width="150px">
-        </div>
-      </div>
-    </div>
-
-  </div>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,9 +8,12 @@
   <title>Home - TRYST'24</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="{% static 'css/events.css'%}">
-  <link rel="stylesheet" href="{% static 'css/styll.css' %}">
+  <link rel="stylesheet" href="{% static 'css/styl.css' %}">
   <link rel="stylesheet" href="{% static 'css/media.css'%}">
   <link rel="stylesheet" href="{% static 'css/homemedia.css'%}">
+  <link rel="stylesheet" href="{% static 'css/animation.css'%}">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Satisfy&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
 </head>
 
 <body class="bg">
@@ -97,36 +38,45 @@
     <main onclick="moveout()" onscroll="moveout()">
       <div class="df main">
         <div class="df mainhead">
-          <h1 class="headline">TRYST</h1>
-          <h3 class="tagline">6 - 7 March 2024</h3>
+          <h1 class="headline" style="--i:1">TRYST</h1>
+          <h3 class="tagline" style="--i:2">6 - 7 March 2024</h3>
         </div>
-        <button class="mainbtn"><a href="#">Explore</a></button>
+        <button class="mainbtn" style="--i:3"><a href="#">Explore</a></button>
       </div>
       <div class="df trystinfo">
         <div class="leftside">
-          <h1 id="lefttryst">WHAT'S IN <span class="tryst">TRYST'24</span></h1>
-          <p>Every year, the Students Union, IHE conducts the much awaited annual cultural fest, ‘FERIA’. The students
-            eagerly look forward to their annual cultural festival that symbolizes a splendid fair like event with lots
-            of
-            stalls, fun and frolic. Students from many colleges participate in various competitions. The entire college
-            wears a festive look as students participate in fun filled activities including games, competitions, food
-            stalls and shopping. The students are instrumental in arranging good sponsorships for the events. Eminent
-            artists, performers and choreographers are involved as they train promising and interested students in
-            choreography, dances and dramatization. All the cultural societies in the college be it Eleganza, Tarkaas,
-            Poise, Navrang, Muzahira and Iridescence participate in the festival with full rigour and enthusiasm. FERIA
-            is
-            indeed a much-awaited event by the students and is marked by a variety of inter-college events such as
-            choreography, debates, music, dance competitions, street play and one-act play, fashion-shows, face art,
-            rangoli making and many more exciting events. The events in Feria are judged by eminent personalities from
-            the
-            fields of art, music, dance, theatre and media. Attractive prizes are given to the winners.</p>
+          <h1 id="lefttryst" class="lefttryst">WHAT'S IN <span class="tryst">TRYST'24</span></h1>
+          <div class="df quo">
+            <span class="quotes q1">“</span>
+            <p>
+              Every year, the Students Union, IHE conducts the much awaited annual cultural fest, ‘FERIA’. The students
+              eagerly look forward to their annual cultural festival that symbolizes a splendid fair like event with
+              lots
+              of
+              stalls, fun and frolic. Students from many colleges participate in various competitions. The entire
+              college
+              wears a festive look as students participate in fun filled activities including games, competitions, food
+              stalls and shopping. The students are instrumental in arranging good sponsorships for the events. Eminent
+              artists, performers and choreographers are involved as they train promising and interested students in
+              choreography, dances and dramatization. All the cultural societies in the college be it Eleganza, Tarkaas,
+              Poise, Navrang, Muzahira and Iridescence participate in the festival with full rigour and enthusiasm.
+              FERIA
+              is
+              indeed a much-awaited event by the students and is marked by a variety of inter-college events such as
+              choreography, debates, music, dance competitions, street play and one-act play, fashion-shows, face art,
+              rangoli making and many more exciting events. The events in Feria are judged by eminent personalities from
+              the
+              fields of art, music, dance, theatre and media. Attractive prizes are given to the winners.
+            </p>
+            <span class="quotes q2">”</span>
+          </div>
         </div>
         <div class="rightside">
           <iframe src="https://www.youtube.com/embed/-yHeiwMQQh0" title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
         </div>
-        <h1 id="righttryst" class="leftside">WHAT'S IN <span class="tryst">TRYST'24</span></h1>
+        <h1 id="righttryst" class="leftside lefttryst">WHAT'S IN <span class="tryst">TRYST'24</span></h1>
       </div>
       <div class="df sponsors">
         <h1 class="sponsor-heading">SPONSORS</h1>
@@ -148,16 +98,16 @@
           <h1 class="artist-heading">PREVIOUS ARTISTS</h1>
           <img class="underfancy artist" src="{% static 'images/fancyunderline.png' %}" alt="">
         </div>
-        <div class="df artistimg">
+        <div class="df artistimg artistImg" style="--i:1">
           <div class="artistdesc">
             <img src="{% static 'images/bpraak.jpg' %}" alt="">
             <h1>B PRAAK</h1>
           </div>
-          <div class="artistdesc">
+          <div class="artistdesc artistImg" style="--i:2">
             <img src="{% static 'images/mg.png' %}" alt="">
             <h1>MILLIND GABA</h1>
           </div>
-          <div class="artistdesc">
+          <div class="artistdesc artistImg" style="--i:3">
             <img src="{% static 'images/ikka.png' %}" alt="">
             <h1>IKKA</h1>
           </div>
@@ -183,12 +133,40 @@
     </footer>
   </div>
 </body>
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 <script>
 
-  // window.addEventListener("resize", () => {
-  //   location.reload()
-  // })
+  var window = $(window)
+  var artistimg = $('.artistImg')
+  var lefttryst = $('.lefttryst')
+  var rightside = $('.rightside')
+  var leftside = $('.leftside')
+
+  function isScroll(elem,window){
+    var docViewTop = $(window).scrollTop();
+    var docViewBotton = $(window).height() + docViewTop;
+
+    var elemTop = $(elem).offset().top;
+    var elemBotton = elem.height() + elemTop;
+    return ((elemTop < docViewBotton));
+  }
+
+  $(window).on('scroll',()=>{
+    if(isScroll(artistimg,window)){
+      artistimg.addClass('topHead')
+    }
+    if(isScroll(leftside,window)){
+      leftside.addClass('leftOut')
+    }
+    if(isScroll(lefttryst,window)){
+      lefttryst.addClass('leftSideOut')
+    }
+    if(isScroll(rightside,window)){
+      rightside.addClass('frameMoveOut')
+    }
+  })
+
+
   let width = window.screen.width
   if (width < 770) {
     let nav = document.getElementById("navbar")

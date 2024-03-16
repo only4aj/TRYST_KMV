@@ -1,0 +1,95 @@
+
+/* Animations */
+
+@keyframes colorChange {
+    0%{
+      color: red;
+      text-shadow: 0 0 10px red;
+    }
+    /* 20%{
+        color: darkred;
+        text-shadow: 0 0 10px darkred;
+    } */
+    40%{
+      color: blue;
+      text-shadow: 0 0 10px blue;
+    }
+    /* 60%{
+      color: yellow;
+      text-shadow: 0 0 10px yellow;
+    } */
+    60%{
+      color: green;
+      text-shadow: 0 0 10px green;
+    }
+    90%{
+        color: rgb(228, 7, 221);
+        text-shadow: 0 0 10px rgb(234, 3, 226);
+    }
+    100%{
+      color: red;
+      text-shadow: 0 0 10px red;
+    }
+  }
+  
+@keyframes zoomIn {
+    0%{
+      transform: scale(0);
+      opacity: 0;
+    }
+    100%{
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes textShadow {
+    0%{
+      text-shadow: 0 0 10px red;
+    }
+    20%{
+      text-shadow: 0 0 10px yellow;
+    }
+    50%{
+      text-shadow: 0 0 10px rgb(255, 86, 115);
+    }
+    90%{
+      text-shadow: 0 0 10px rgb(3, 231, 3);
+    }
+    100%{
+      text-shadow: 0 0 10px rgb(247, 51, 51);
+    }
+  }
+
+  @keyframes leftMove {
+    0%{
+      left: -700px;
+      opacity: 0;
+    }
+    100%{
+      left: 0;
+      opacity: 1;
+    }
+  }
+
+  @keyframes frameRightOut {
+    0%{
+      left: 500px;
+      opacity: 0.5;
+    }
+    100%{
+      left: 0;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes contentLeftOut {
+    0%{
+      top: 300px;
+      opacity: 0.5;
+    }
+    100%{
+      top: 0;
+      opacity: 1;
+    }
+  }
