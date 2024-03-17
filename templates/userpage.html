@@ -23,6 +23,14 @@
             font-size: 100px;
             opacity: 0.3;
         }
+        .ctm-card{
+            width: 70%;
+            flex-wrap: wrap;
+            flex-direction: row;
+        }
+        .ctm-img{
+            width: 250px;
+        }
     </style>
 
 </head>
@@ -43,15 +51,16 @@
         </div>
         <div class="container content d-flex justify-content-center align-items-center">
             {%if status%}
-            <div class="card" style="width: 18rem;">
-                <img src="../{{data.StdIDCard}}" class="card-img-top" alt="...">
+            <div class="card d-flex justify-content-between align-items-center ctm-card" >
+                <img src="{{data.StdIDCard.url}}" class="card-img-top ctm-img" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{data.name}}</h5>
                     <p class="card-text">UID : {{data.UID}}</p>
                     <p class="card-text">Phone : {{data.phone}}</p>
                     <p class="card-text">College : {{data.collegeName}}</p>
-                    <p class="card-text">College : {{data.email}}</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <p class="card-text">Email Id : {{data.email}}</p>
+                    <p class="card-text">Entry Time : {{data.entryTime}}</p>
+                    <button type="submit" class="btn btn-danger"> Entry Me</button>
                 </div>
             </div>
             {%else %}

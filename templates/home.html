@@ -48,7 +48,7 @@
           <h1 id="lefttryst" class="lefttryst">WHAT'S IN <span class="tryst">TRYST'24</span></h1>
           <div class="df quo">
             <span class="quotes q1">“</span>
-            <p>
+            <p id="tryst_content">
               Every year, the Students Union, IHE conducts the much awaited annual cultural fest, ‘FERIA’. The students
               eagerly look forward to their annual cultural festival that symbolizes a splendid fair like event with
               lots
@@ -83,13 +83,13 @@
         <img class="underfancy underfancy1" src="{% static 'images/fancyunderline.png' %}" alt="">
         <div class="df rowimg">
           <div class="df rowoneimg">
-            <img src="{% static 'images/cokelogo.jpg' %}" alt="">
-            <img src="{% static 'images/cokelogo.jpg' %}" alt="">
-            <img src="{% static 'images/cokelogo.jpg' %}" alt="">
+            <img src="{% static 'images/cokelogo.jpg' %}" alt="" class="sponsorImg" style="--i:1">
+            <img src="{% static 'images/cokelogo.jpg' %}" alt="" class="sponsorImg" style="--i:2">
+            <img src="{% static 'images/cokelogo.jpg' %}" alt="" class="sponsorImg" style="--i:3">
           </div>
           <div class="df rowtwoimg">
-            <img src="{% static 'images/cokelogo.jpg' %}" alt="">
-            <img src="{% static 'images/cokelogo.jpg' %}" alt="">
+            <img src="{% static 'images/cokelogo.jpg' %}" alt="" class="sponsorImg" style="--i:4">
+            <img src="{% static 'images/cokelogo.jpg' %}" alt="" class="sponsorImg" style="--i:5">
           </div>
         </div>
       </div>
@@ -133,16 +133,19 @@
     </footer>
   </div>
 </body>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> -->
+<script src="{%static '/js/jquery-3.7.1.min.js'%}"></script>
 <script>
 
+  // jQuery Code
   var window = $(window)
   var artistimg = $('.artistImg')
+  var sponsorimg = $('.sponsorImg')
   var lefttryst = $('.lefttryst')
   var rightside = $('.rightside')
   var leftside = $('.leftside')
-
-  function isScroll(elem,window){
+  function isScroll(elem, window) {
     var docViewTop = $(window).scrollTop();
     var docViewBotton = $(window).height() + docViewTop;
 
@@ -151,21 +154,26 @@
     return ((elemTop < docViewBotton));
   }
 
-  $(window).on('scroll',()=>{
-    if(isScroll(artistimg,window)){
+  $(window).on('scroll', () => {
+    if (isScroll(artistimg, window)) {
       artistimg.addClass('topHead')
     }
-    if(isScroll(leftside,window)){
+    if (isScroll(sponsorimg, window)) {
+      sponsorimg.addClass('topHead')
+    }
+    if (isScroll(leftside, window)) {
       leftside.addClass('leftOut')
     }
-    if(isScroll(lefttryst,window)){
+    if (isScroll(lefttryst, window)) {
       lefttryst.addClass('leftSideOut')
     }
-    if(isScroll(rightside,window)){
+    if (isScroll(rightside, window)) {
       rightside.addClass('frameMoveOut')
     }
   })
 
+  $('#tryst_content').hide();
+  $('#tryst_content').toggle(2000);
 
   let width = window.screen.width
   if (width < 770) {
