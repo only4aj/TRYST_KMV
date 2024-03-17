@@ -50,7 +50,7 @@
                         </div>
                         
                         <div class="d-flex justify-content-between">
-                            <button disabled id="btn" type="submit" class="btn btn-primary mx-3">Submit</button>
+                            <button disabled id="btn" type="submit" class="btn btn-primary mx-3" onclick="checking()">Submit</button>
                             <a class="btn btn-primary mx-3" href="{%url 'home'%}" role="button">&larr; Home</a>
                         </div>
                     </form>
@@ -71,62 +71,83 @@
     let alert = document.getElementById("alert").style
     let btn = document.getElementById("btn")
     let error = document.getElementById("txt")
+    var check = false;
 
-    const checkName = () => {
-        let name = document.getElementById("name").value
-        let num = name.match(/[A-Za-z ]/gm)
-        num === null ? num = 0 : num = name.match(/[A-Za-z ]/gm).length;
-        if (num === name.length) {
-            alert.display = 'none'
-            btn.disabled = false;
-        }
-        else {
-            alert.display = 'block'
-            alert.color = 'red'
-            error.innerText = 'Only Alphabets are allowed'
-            btn.disabled = true;
-        }
+const checkName = () => {
+    let name = document.getElementById("name").value
+    let num = name.match(/[A-Za-z ]/gm)
+    num === null ? num = 0 : num = name.match(/[A-Za-z ]/gm).length;
+    if (num === name.length) {
+        alert.display = 'none'
+        btn.disabled = false;
+        check = true;
     }
+    else {
+        alert.display = 'block'
+        alert.color = 'red'
+        error.innerText = 'Only Alphabets are allowed in Name'
+        check = false;
+        btn.disabled = true;
+    }
+}
 
-    const checkEmail = () => {
-        let email = document.getElementById("email").value
-        if (email.match(/@gmail.com/gm) === null) {
-            alert.display = 'block'
-            alert.color = 'red'
-            error.innerText = "Only 'gmail.com' email adress are allowed"
-            btn.disabled = true;
-        }
-        else {
-            alert.display = 'none'
-            btn.disabled = false;
-        }
+const checkEmail = () => {
+    let email = document.getElementById("email").value
+    if (email.match(/@gmail.com/gm) === null) {
+        alert.display = 'block'
+        alert.color = 'red'
+        error.innerText = "Only 'gmail.com' email adress are allowed"
+        btn.disabled = true;
+        check = false;
     }
-    const checkPhone = () => {
-        let phone = document.getElementById("phone").value
-        if (phone.match(/\d/gm) === null) {
-            if (phone !== '') {
-                alert.display = 'block'
-                alert.color = 'red'
-                error.innerText = 'Only Phone Number are allowed'
-                btn.disabled = true;
-            }
-        }
-        else if (phone.match(/\d/gm).length !== phone.length) {
-            console.log(phone.match(/\d/gm).length)
+    else {
+        alert.display = 'none'
+        btn.disabled = false;
+        check = true;
+    }
+}
+const checkPhone = () => {
+    let phone = document.getElementById("phone").value
+    if (phone.match(/\d/gm) === null) {
+        if (phone !== '') {
             alert.display = 'block'
             alert.color = 'red'
             error.innerText = 'Only Phone Number are allowed'
             btn.disabled = true;
+            check = false;
         }
-        else if (phone.length !== 10) {
-            alert.display = 'block'
-            alert.color = 'red'
-            error.innerText = 'Phone is 10 digits required'
-            btn.disabled = true;
-        }
-        else {
-            alert.display = 'none'
-            btn.disabled = false;
+    }
+    else if (phone.match(/\d/gm).length !== phone.length) {
+        console.log(phone.match(/\d/gm).length)
+        alert.display = 'block'
+        alert.color = 'red'
+        error.innerText = 'Only Phone Number are allowed'
+        btn.disabled = true;
+        check = false;
+    }
+    else if (phone.length !== 10) {
+        alert.display = 'block'
+        alert.color = 'red'
+        error.innerText = 'Phone is 10 digits required'
+        btn.disabled = true;
+        check = false;
+    }
+    else {
+        alert.display = 'none'
+        btn.disabled = false;
+        check = true;
+    }
+}
+
+    const checking = () => {
+        if (check) {
+            checkName()
+            if (check) {
+                checkEmail()
+                if (check) {
+                    checkPhone()
+                }
+            }
         }
     }
 
