@@ -35,7 +35,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="course" class="form-label">Enter Course</label>
-                            <input type="text" class="form-control" onkeyup="checkName()" id="course" name="course" required
+                            <input type="text" class="form-control" onkeyup="checkCourse()" id="course" name="course" required
                                 aria-describedby="emailHelp" placeholde="alphabets only">
                         </div>
                         <div class="mb-3">
@@ -45,7 +45,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="year" class="form-label">Enter year</label>
-                            <input type="tel" class="form-control" onkeyup="checkPhone()" id="year"
+                            <input type="number" class="form-control" id="year"
                                 name="year" required aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
@@ -96,6 +96,23 @@ const checkName = () => {
         alert.display = 'block'
         alert.color = 'red'
         error.innerText = 'Only Alphabets are allowed in Name'
+        check = false;
+        btn.disabled = true;
+    }
+}
+const checkCourse = () => {
+    let course = document.getElementById("course").value
+    let num = course.match(/[A-Za-z ]/gm)
+    num === null ? num = 0 : num = course.match(/[A-Za-z ]/gm).length;
+    if (num === course.length) {
+        alert.display = 'none'
+        btn.disabled = false;
+        check = true;
+    }
+    else {
+        alert.display = 'block'
+        alert.color = 'red'
+        error.innerText = 'Only Alphabets are allowed in Course'
         check = false;
         btn.disabled = true;
     }
