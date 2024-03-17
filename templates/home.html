@@ -38,13 +38,15 @@
     <main onclick="moveout()" onscroll="moveout()">
       <div class="df main">
         <div class="df mainhead">
-          <h1 class="headline"><span class="headline" style="--i:1">T</span><span class="headline" style="--i:2">R</span><span class="headline" style="--i:3">Y</span><span class="headline" style="--i:4">S</span><span class="headline" style="--i:5">T</span></h1>
+          <h1 class="headline"><span class="headline" style="--i:1">T</span><span class="headline"
+              style="--i:2">R</span><span class="headline" style="--i:3">Y</span><span class="headline"
+              style="--i:4">S</span><span class="headline" style="--i:5">T</span></h1>
           <h3 class="tagline" style="--i:6">9 - 10 April 2024</h3>
         </div>
         <button class="mainbtn" style="--i:7"><a href="#">Explore</a></button>
       </div>
       <div class="df trystinfo">
-        <div class="leftside">
+        <div class="leftside leftside1">
           <h1 id="lefttryst" class="lefttryst">WHAT'S IN <span class="tryst">TRYST'24</span></h1>
           <div class="df quo">
             <span class="quotes q1">“</span>
@@ -98,8 +100,8 @@
           <h1 class="artist-heading">PREVIOUS ARTISTS</h1>
           <img class="underfancy artist" src="{% static 'images/fancyunderline.png' %}" alt="">
         </div>
-        <div class="df artistimg artistImg" style="--i:1">
-          <div class="artistdesc">
+        <div class="df artistimg">
+          <div class="artistdesc artistImg" style="--i:1">
             <img src="{% static 'images/bpraak.jpg' %}" alt="">
             <h1>B PRAAK</h1>
           </div>
@@ -144,7 +146,7 @@
   var sponsorimg = $('.sponsorImg')
   var lefttryst = $('.lefttryst')
   var rightside = $('.rightside')
-  var leftside = $('.leftside')
+  var leftside = $('.leftside1')
   function isScroll(elem, window) {
     var docViewTop = $(window).scrollTop();
     var docViewBotton = $(window).height() + docViewTop;
@@ -152,6 +154,12 @@
     var elemTop = $(elem).offset().top;
     var elemBotton = elem.height() + elemTop;
     return ((elemTop < docViewBotton));
+  }
+
+  let screenWidth = window.screen.width
+  if (screenWidth < 770) {
+    lefttryst.addClass('leftSideOut')
+    rightside.addClass('frameMoveOut')
   }
 
   $(window).on('scroll', () => {
@@ -181,6 +189,7 @@
     nav.style.right = '-200px';
     nav.style.display = 'none';
     document.getElementById("menu").style.display = 'block';
+    $('.quotes').hide()
   } else {
     document.getElementById("cut").style.display = 'none';
     document.getElementById("menu").style.display = 'none';

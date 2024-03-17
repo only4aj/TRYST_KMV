@@ -68,7 +68,7 @@
             </div>
             <!-- </div>
             <div class="df boxCard card2"> -->
-            <div class="eventcard box4" style="--i:1">
+            <div class="eventcard box4" id="box4" style="--i:1">
                 <img src="{% static 'images/fbg_final.png' %}" alt="">
                 <div class="cardinfo">
                     <p class="genre">Fashion</p>
@@ -169,13 +169,24 @@
     }
 
     // if (isScroll(card1, window)) {
-    box1.addClass('zoomin')
-    box2.addClass('zoomin')
-    box3.addClass('zoomin')
+    let screenWidth = window.screen.width
+    if (screenWidth < 770) {
+        document.getElementById("box4").style = "--i:4"
+        box1.addClass('zoomin')
+        box2.addClass('zoomin')
+        box3.addClass('zoomin')
+        box4.addClass('zoomin')
+    } else {
+        box1.addClass('zoomin')
+        box2.addClass('zoomin')
+        box3.addClass('zoomin')
+    }
     // }
     $(window).on('scroll', () => {
-        if (isScroll(box4, window)) {
-            box4.addClass('zoomin')
+        if (screenWidth > 770) {
+            if (isScroll(box4, window)) {
+                box4.addClass('zoomin')
+            }
         }
         if (isScroll(box5, window)) {
             box5.addClass('zoomin')

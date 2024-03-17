@@ -25,6 +25,10 @@
     background: linear-gradient(45deg, #00065c, transparent);
 }
 
+form{
+    width: 300px;
+}
+
 
 #txt {
     display: inline-block;
