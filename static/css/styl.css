@@ -330,7 +330,7 @@ nav ul li a {
 .q2 {
   text-align: center;
   top: -30px;
-  left: -20px;
+  left: 90px;
 }
 
 .sponsor-heading {
@@ -509,13 +509,13 @@ footer {
 }
 
 .leftSideOut {
-  animation: leftMove 1s ease forwards;
+  animation: leftMove 2s ease forwards;
 }
 
 .frameMoveOut{
-  animation: frameRightOut 1s ease forwards;
+  animation: frameRightOut 2s ease forwards;
 }
 
 .leftOut{
-  animation: contentLeftOut 1s ease forwards;
+  animation: contentLeftOut 2s ease forwards;
 }
