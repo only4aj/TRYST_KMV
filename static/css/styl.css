@@ -96,7 +96,7 @@ nav ul li a {
 .mainhead {
   width: 100vw;
   flex-direction: column;
-  margin-top: 120px;
+  margin-top: 100px;
 }
 
 /* .headline { */
@@ -120,11 +120,11 @@ nav ul li a {
   font-family: "Black Ops One", sans-serif;
   text-transform: uppercase;
   background-image: linear-gradient(
-    -225deg,
+    -360deg,
     #281862 0%,
-    #44107a 29%,
-    #e8135a 67%,
-    #fffa6c 100%
+    #44107a 40%,
+    #e8135a 47%,
+    #fffa6c 70%
   );
   background-size: auto auto;
   background-clip: border-box;
@@ -137,7 +137,10 @@ nav ul li a {
   opacity: 0;
   animation: textclip 2s linear infinite,zoomIn 1s ease forwards;
   animation-delay: calc(0.3s*var(--i));
-  display: inline-block;
+  /* display: inline-block; */
+  text-shadow: 9px 9px 5px #ff4747;
+  /* font-family: "Sacramento", cursive; */
+  /* text-align: center; */
 }
 
 @keyframes textclip {
@@ -148,14 +151,25 @@ nav ul li a {
 
 .tagline {
   /* margin-left: 355px; */
-  color: aliceblue;
+  color: white;
   -webkit-text-stroke: 1px white;
   font-size: 40px;
   font-family: "Black Ops One";
   margin-top: -20px;
   opacity: 0;
-  animation: zoomIn 1s ease forwards;
+  animation: fadeIn 2s ease forwards;
   animation-delay: calc(0.3s*var(--i));
+  text-shadow: 0px 0px 20px #ffffff;
+}
+
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+  
 }
 
 
@@ -169,13 +183,14 @@ nav ul li a {
 }
 
 .mainbtn {
-  background-color: rgb(241, 25, 69);
+  background-image: linear-gradient(rgb(255, 255, 82),red, rgb(255, 195, 83));
   padding-left: 5px;
+  border-radius: 2px;
   padding-right: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
   border: 3px solid white;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   margin-top: 20px;
   margin-bottom: 80px;
   opacity: 0;
@@ -214,7 +229,10 @@ nav ul li a {
 }
 
 .sponsors {
-  background-color: rgb(12, 12, 12);
+  background: url("/static/images/fbg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-top: 5px solid white;
   width: 100vw;
   flex-direction: column;
   /* margin-top: 80px; */
@@ -284,7 +302,8 @@ nav ul li a {
 }
 
 .trystinfo {
-  background-color: rgb(12, 12, 12);
+  background-color: rgb(24, 24, 24);
+  border-top: 5px solid white;
   width: 100vw;
   height: 600px;
   gap: 80px;
@@ -297,7 +316,7 @@ nav ul li a {
 
 .quotes {
   color: goldenrod;
-  font-size: 45px;
+  font-size: 60px;
   font-family: Helvetica, Arial, and Open Sans;
   position: relative;
   width: 100%;
@@ -311,7 +330,7 @@ nav ul li a {
 .q2 {
   text-align: center;
   top: -30px;
-  left: 90px;
+  left: -20px;
 }
 
 .sponsor-heading {
@@ -349,7 +368,11 @@ nav ul li a {
 }
 
 .past-artists {
-  background-color: rgb(12, 12, 12);
+  background-color: rgb(18, 18, 18);
+  /* background-repeat: no-repeat;
+  background-size: cover; */
+  /* background-color: rgb(226, 226, 226); */
+  border-top: 5px solid white;
   margin-top: -30px;
   width: 100vw;
   height: 700px;

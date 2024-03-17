@@ -67,22 +67,11 @@ def registration(request):
     phone = request.POST.get("phone", "")
     email = request.POST.get("email", "")
     collegeName = request.POST.get("collegeName", "")
-    image = request.FILES.get("image")
-
-    if not (name and phone and email and collegeName and image):
-        return render(request, "registration.html")
     
 
-    if image:  # Make sure an image was uploaded
-        # Define the directory where you want to save the image
-        image_directory = os.path.join(settings.MEDIA_ROOT, 'images')
-        os.makedirs(image_directory, exist_ok=True)
-
-        filename = os.path.join(image_directory, f"{name[0:3]}_{phone}_{random.randint(100000,999999)}_img.png")
-
-        with open(filename, 'wb+') as destination:
-            for chunk in image.chunks():
-                destination.write(chunk)
+    if not (name and phone and email and collegeName):
+        return render(request, "registration.html")
+    
         
         # Store the path of the saved file in the session
 
@@ -101,7 +90,7 @@ def registration(request):
     request.session["email"] = email
     request.session["collegeName"] = collegeName
     # request.session["image"] = image
-    request.session["image"] = filename
+    # request.session["image"] = filename
     
     otp = send_otp(request,email)
 
@@ -137,14 +126,29 @@ def otp_verfication(request):
         return render(request , "verification.html")
     
     elif user_otp == otp:
+        image = request.FILES.get("image")
+        filename = ''
+        if image:  # Make sure an image was uploaded
+            # Define the directory where you want to save the image
+            image_directory = os.path.join(settings.MEDIA_ROOT, 'images')
+            os.makedirs(image_directory, exist_ok=True)
+
+            filename = os.path.join(image_directory, f"{session_data.get("name")[0:3]}_{session_data.get("phone")}_{random.randint(100000,999999)}_img.png")
+
+            with open(filename, 'wb+') as destination:
+                for chunk in image.chunks():
+                    destination.write(chunk)
+                    
         user_name = session_data.get("name")
         user_phone = session_data.get("phone")
         user_email = session_data.get("email")
         user_collegeName = session_data.get("collegeName")
-        user_idcard = session_data.get("image")
+        user_idcard = filename
         uid = get_random_string(10,allowed_chars='0123456789zxcvbnm&%$#@')
         registration_data = RegistrationForm(name = user_name , phone = user_phone , collegeName = user_collegeName , email = user_email , StdIDCard = user_idcard,UID=uid)
         registration_data.save()
+
+        
 
         # data = RegistrationForm.objects.get()
         # qr_code = data.Std_qr_code
@@ -164,6 +168,7 @@ def otp_verfication(request):
         return render(request , "success.html")
     
     else:
+        
         Session.objects.filter(session_key=session_id).delete()
         return render(request , "")
     

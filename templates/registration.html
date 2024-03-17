@@ -13,6 +13,7 @@
 </head>
 
 <body class="bg">
+    
     <main class="d-flex justify-content-center align-items-center">
         <div class="container">
             <div class="d-flex  justify-content-center">
@@ -25,7 +26,7 @@
                         <h1><Span class="badge bg-secondary">Registration Form</Span></h1>
                     </div>
                     <!-- <form onsubmit="dataSubmit()"> -->
-                    <form method="post" enctype="multipart/form-data">
+                    <form method="post">
                         {% csrf_token%}
                         <div class="mb-3">
                             <label for="name" class="form-label">Enter Name</label>
@@ -47,10 +48,7 @@
                             <input type="email" class="form-control" placeholder="example@gmail.com"
                                 onkeyup="checkEmail()" id="email" name="email" required aria-describedby="emailHelp">
                         </div>
-                        <div class="mb-3">
-                            <label for="image" class="form-label">Upload Your College ID Card</label>
-                            <input type="file" class="form-control" accept="image/*" id="image" name="image" required>
-                        </div>
+                        
                         <div class="d-flex justify-content-between">
                             <button disabled id="btn" type="submit" class="btn btn-primary mx-3" onclick="checking()">Submit</button>
                             <a class="btn btn-primary mx-3" href="{%url 'home'%}" role="button">&larr; Home</a>
