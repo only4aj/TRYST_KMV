@@ -298,7 +298,11 @@ nav ul li a {
 
 .quotes {
   color: goldenrod;
+<<<<<<< HEAD
   font-size: 60px;
+=======
+  font-size: 45px;
+>>>>>>> cdede95fc95967b0e8c913f0079d1c57bf10d045
   font-family: Helvetica, Arial, and Open Sans;
   position: relative;
   width: 100%;
@@ -312,7 +316,11 @@ nav ul li a {
 .q2 {
   text-align: center;
   top: -30px;
+<<<<<<< HEAD
   left: -20px;
+=======
+  left: 90px;
+>>>>>>> cdede95fc95967b0e8c913f0079d1c57bf10d045
 }
 
 .sponsor-heading {

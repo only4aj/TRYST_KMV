@@ -5,6 +5,11 @@
 /* .container { */
     /* background-image: url("/images/fbg.jpg"); */
 /* } */
+.bg{
+    background-image: url("/static/images/fbg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 .form {
     width: 400px;
