@@ -89,11 +89,11 @@ def registration(request):
         
         # Store the path of the saved file in the session
 
-    # d = RegistrationForm.objects.filter(email=email).values()
-    # status = True
-    # if len(d) != 0:
-    #     status = False
-    #     return render(request, "verification.html", {"status": status, "email": email})
+    d = RegistrationForm.objects.filter(email=email).values()
+    status = True
+    if len(d) != 0:
+        status = False
+        return render(request, "verification.html", {"status": status, "email": email})
     
     # session = SessionStore()
     request.session.create()

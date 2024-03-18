@@ -18,15 +18,15 @@
 
 <body class="bg-dark">
     <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
-        <div class="card" style="width: 25rem;">
+        <div class="card" style="width: 27rem;">
             <div class="card-body">
                 {% if status%}
-                <h5 class="card-title">STEP 2 - OTP Verification</h5>
+                <h5 class="card-title">STEP 2 - Verify OTP and Upload Your Image</h5>
                 <p class="warning" id="warning"></p>
                 {%if otpStts%}
-                <p class="warning">Please enter valid OTP</p>
+                <p class="warning">Please enter the valid OTP</p>
                 {%endif%}
-                <p>Send in {{email}}</p>
+                <p>OTP Sent on {{email}}</p>
                 <form class="row g-3 d-flex flex-column" enctype="multipart/form-data" method="post"
                     action="{% url 'verification' %}">
                     {% csrf_token %}
@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="image" class="form-label">Upload Your College ID Card</label>
+                        <label for="image" class="form-label">Upload Your Image (.png/.jpg/.jpeg)</label>
                         <input type="file" class="form-control" accept="image/*" onchange="checkImg()" id="image"
                             name="image" required>
                     </div>

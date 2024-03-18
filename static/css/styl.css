@@ -456,6 +456,8 @@ footer {
 
 .copyright {
   word-spacing: 2px;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .copyright h3 {
@@ -465,7 +467,7 @@ footer {
 
 .rights {
   color: rgb(165, 163, 163);
-  padding-left: 60px;
+  /* padding-left: 60px; */
   margin-top: 5px;
   font-family: "Black Ops One";
 }
@@ -474,7 +476,8 @@ footer {
   font-family: "Black Ops One";
 }
 
-.ansh-juneja {
+.ansh-juneja a{
+  text-decoration: none;
   color: rgb(254, 28, 73);
 }
 
