@@ -18,11 +18,14 @@
         <div class="container">
             <div class="d-flex  justify-content-center">
                 <div class="form d-flex flex-column align-items-center justify-content-center">
-                    <div class="d-flex justify-content-center flex-column align-items-end reg">
+                    <div class="d-flex justify-content-center flex-column align-items-center reg">
                         <div id="alert" className="alert alert-danger alert-dismissible fade show alt" role="alert">
                             <!-- <strong>Error : </strong> -->
                             <p id="txt"></p>
                         </div>
+                        {%if status%}
+                        <p style="font-size: 20px;">{{data}}</p>
+                        {%endif%}
                         <h1><Span class="badge bg-secondary">Registration Form</Span></h1>
                     </div>
                     <!-- <form onsubmit="dataSubmit()"> -->

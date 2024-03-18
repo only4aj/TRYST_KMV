@@ -10,10 +10,10 @@ from django.utils.html import strip_tags
 from django.contrib import messages, auth
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.conf import settings
 import random
 import os
 import django
+
 
 from django.conf import settings
 
@@ -72,12 +72,22 @@ def registration(request):
     
 
     if not (name and phone and email and collegeName and course and year):
-        return render(request, "registration.html")
+        return render(request, "registration.html",{'status':False,'data':''})
     
+    if not str(name).isalpha() :
+        return render(request, "registration.html",{'status':True,'data':'Please Enter valid name'})
+    if not str(phone).isnumeric() :
+        return render(request, "registration.html",{'status':True,'data':'Please Enter valid Phone number'})
+    if not str(email).endswith('@gmail.com'):
+        return render(request, "registration.html",{'status':True,'data':'Please Enter valid Email'})
+    if not str(collegeName).isalpha() :
+        return render(request, "registration.html",{'status':True,'data':'Please Enter valid Collge Name'})
+    if not str(year).isnumeric() :
+        return render(request, "registration.html",{'status':True,'data':'Please Enter valid Year'})
+    if str(course).isnumeric() and str(collegeName).isalnum():
+        return render(request, "registration.html",{'status':True,'data':'Please Enter valid Course'})
         
         # Store the path of the saved file in the session
-
-
 
     # d = RegistrationForm.objects.filter(email=email).values()
     # status = True
@@ -102,7 +112,7 @@ def registration(request):
     request.session.save()
 
     print(request.session.session_key)
-    return render(request , "verification.html",{"status":True,"email":email})
+    return render(request , "verification.html",{"status":True,"email":email,'otpStts':False})
 
 
 
@@ -113,7 +123,6 @@ def send_email(subject, message, receiver):
     recipient_list = [receiver]
 
     send_mail(subject, message, from_email, recipient_list)
-
 
 def otp_verfication(request):
     # session_id = request.session.session_key
@@ -127,42 +136,36 @@ def otp_verfication(request):
     user_otp = request.POST.get("otp")
 
     if user_otp != otp:
-        return render(request , "verification.html")
+        return render(request , "verification.html",{"status":True,"email":session_data.get("email"),'otpStts':True})
     
     elif user_otp == otp:
         image = request.FILES.get("image")
         filename = ''
         if image:  # Make sure an image was uploaded
-            # Define the directory where you want to save the image
+        # Define the directory where you want to save the image
             image_directory = os.path.join(settings.MEDIA_ROOT, 'images')
             os.makedirs(image_directory, exist_ok=True)
-
+            
             filename = os.path.join(image_directory, f"{session_data.get("name")[0:3]}_{session_data.get("phone")}_{random.randint(100000,999999)}_img.png")
 
             with open(filename, 'wb+') as destination:
                 for chunk in image.chunks():
                     destination.write(chunk)
-                    
+
+
+        # Store the path of the saved file in the session
         user_name = session_data.get("name")
         user_phone = session_data.get("phone")
         user_email = session_data.get("email")
         user_collegeName = session_data.get("collegeName")
         user_idcard = filename
-        user_course = session_data.get("course")
-        user_year = session_data.get("year")
-
-        uid = get_random_string(10,allowed_chars='0123456789abcdefghijklmnopqrstuvwxyz')
-        registration_data = RegistrationForm(name = user_name , phone = user_phone , collegeName = user_collegeName , email = user_email , StdIDCard = user_idcard,UID=uid, course=user_course, year=user_year)
+        uid = get_random_string(10,allowed_chars='0123456789zxcvbnm&%$#@')
+        registration_data = RegistrationForm(name = user_name , phone = user_phone , collegeName = user_collegeName , email = user_email , StdIDCard = user_idcard,UID=uid)
         registration_data.save()
-
-        
-
-        # data = RegistrationForm.objects.get()
-        # qr_code = data.Std_qr_code
 
         qr_code = registration_data.Std_qr_code
 
-        html_content = render_to_string("email_body.html" , {'username' : user_name})
+        html_content = render_to_string("email_body.html" , {'username' : user_name,"image":qr_code.url})
         text_content = strip_tags(html_content)
 
         email = EmailMultiAlternatives("TRYST'24 Entry Ticket" , text_content , EMAIL_HOST_USER , [user_email])
@@ -170,12 +173,10 @@ def otp_verfication(request):
         email.attach_file(os.path.join(str(qr_code)))
         email.send()
 
-
         Session.objects.filter(session_key=session_id).delete()
         return render(request , "success.html")
     
     else:
-        
         Session.objects.filter(session_key=session_id).delete()
         return render(request , "")
     
@@ -200,13 +201,11 @@ def viewdata(request):
         return render(request,'userpage.html',{"status":False,"data":''})
     else:
         data = RegistrationForm.objects.all()
-        print(data)
         userdata = ''
         for d in data:
             if d.UID == uid:
                 userdata = d
                 break
-        print(userdata)
         return render(request,'userpage.html',{"status":True,"data":userdata})
 
 
@@ -215,8 +214,6 @@ def viewadminpage(request):
     adminpassword = request.POST.get("adminpassword",'')
 
     user = auth.authenticate(username=adminname, password=adminpassword)
-    print(adminname)
-    print(adminpassword)
 
     if user is not None:
         auth.login(request, user)
