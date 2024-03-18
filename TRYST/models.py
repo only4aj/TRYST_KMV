@@ -22,6 +22,8 @@ class RegistrationForm(models.Model):
     phone = models.PositiveBigIntegerField()
     collegeName = models.CharField(max_length=200)
     email = models.EmailField()
+    course = models.CharField(max_length=100, blank=True)
+    year = models.IntegerField(default=0)
     StdIDCard = models.ImageField(upload_to="images")
     UID = models.CharField(max_length=7)
     otp = models.IntegerField(default=0)
@@ -32,10 +34,9 @@ class RegistrationForm(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
-        # data = f"Student Name : {self.name}\nPhone Number : {self.phone}\nCollege Name : {self.collegeName}\nEmail : {self.email}\n Image : {self.StdIDCard}\n\nVERIFIED USER"
-        data = self.UID
+        data = f"Student Name : {self.name}\nPhone Number : {self.phone}\nCollege Name : {self.collegeName}\nEmail : {self.email}\nCourse: {self.course}\nYear: {self.year}\nUNIQUE TRYST ID: {self.UID}\n\nVERIFIED USER"
         qr_image = qrcode.make(data)
-        qr_offset = Image.new("RGB", (600, 600), "blue")
+        qr_offset = Image.new("RGB", (650, 650), "blue")
         qr_offset.paste(qr_image)
         files_name = f"{self.name}_{self.phone}_{random.randint(100000,999999)}.png"
         stream = BytesIO()

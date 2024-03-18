@@ -67,9 +67,11 @@ def registration(request):
     phone = request.POST.get("phone", "")
     email = request.POST.get("email", "")
     collegeName = request.POST.get("collegeName", "")
+    course = request.POST.get("course")
+    year = request.POST.get("year")
     
 
-    if not (name and phone and email and collegeName):
+    if not (name and phone and email and collegeName and course and year):
         return render(request, "registration.html")
     
         
@@ -89,6 +91,8 @@ def registration(request):
     request.session["phone"] = phone
     request.session["email"] = email
     request.session["collegeName"] = collegeName
+    request.session["course"] = course
+    request.session["year"] = year
     # request.session["image"] = image
     # request.session["image"] = filename
     
@@ -144,8 +148,11 @@ def otp_verfication(request):
         user_email = session_data.get("email")
         user_collegeName = session_data.get("collegeName")
         user_idcard = filename
+        user_course = session_data.get("course")
+        user_year = session_data.get("year")
+
         uid = get_random_string(10,allowed_chars='0123456789zxcvbnm&%$#@')
-        registration_data = RegistrationForm(name = user_name , phone = user_phone , collegeName = user_collegeName , email = user_email , StdIDCard = user_idcard,UID=uid)
+        registration_data = RegistrationForm(name = user_name , phone = user_phone , collegeName = user_collegeName , email = user_email , StdIDCard = user_idcard,UID=uid, course=user_course, year=user_year)
         registration_data.save()
 
         
