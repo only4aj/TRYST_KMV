@@ -45,3 +45,8 @@ form{
 #btn{
     background: blue;
 }
+
+#alert{
+    width: 100%;
+    text-align: center;
+}

@@ -151,7 +151,7 @@ def otp_verfication(request):
         user_course = session_data.get("course")
         user_year = session_data.get("year")
 
-        uid = get_random_string(10,allowed_chars='0123456789zxcvbnm&%$#@')
+        uid = get_random_string(10,allowed_chars='0123456789abcdefghijklmnopqrstuvwxyz')
         registration_data = RegistrationForm(name = user_name , phone = user_phone , collegeName = user_collegeName , email = user_email , StdIDCard = user_idcard,UID=uid, course=user_course, year=user_year)
         registration_data.save()
 

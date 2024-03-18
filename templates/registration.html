@@ -13,7 +13,7 @@
 </head>
 
 <body class="bg">
-    
+
     <main class="d-flex justify-content-center align-items-center">
         <div class="container">
             <div class="d-flex  justify-content-center">
@@ -35,18 +35,18 @@
                         </div>
                         <div class="mb-3">
                             <label for="course" class="form-label">Enter Course</label>
-                            <input type="text" class="form-control" onkeyup="checkCourse()" id="course" name="course" required
-                                aria-describedby="emailHelp" placeholde="alphabets only">
+                            <input type="text" class="form-control" onkeyup="checkCourse()" id="course" name="course"
+                                required aria-describedby="emailHelp" placeholde="alphabets only">
                         </div>
                         <div class="mb-3">
                             <label for="phone" class="form-label">Enter Phone</label>
-                            <input type="tel" class="form-control" onkeyup="checkPhone()" id="phone"
-                                name="phone" required aria-describedby="emailHelp">
+                            <input type="tel" class="form-control" onkeyup="checkPhone()" id="phone" name="phone"
+                                required aria-describedby="emailHelp">
                         </div>
                         <div class="mb-3">
                             <label for="year" class="form-label">Enter Year</label>
-                            <input type="number" class="form-control" id="year"
-                                name="year" required aria-describedby="emailHelp">
+                            <input type="tel" class="form-control" onkeyup="checkYear()" id="year" name="year" required
+                                aria-describedby="emailHelp" maxlength="1">
                         </div>
                         <div class="mb-3">
                             <label for="collegeNme" class="form-label">Enter College Name</label>
@@ -58,10 +58,11 @@
                             <input type="email" class="form-control" placeholder="example@gmail.com"
                                 onkeyup="checkEmail()" id="email" name="email" required aria-describedby="emailHelp">
                         </div>
-                        
+
                         <div class="d-flex justify-content-between">
                             <a class="btn btn-primary mx-3" href="{%url 'home'%}" role="button">&larr; Home</a>
-                            <button disabled id="btn" type="submit" class="btn btn-primary mx-3" onclick="checking()">Submit</button>
+                            <button disabled id="btn" type="submit" class="btn btn-primary mx-3"
+                                onclick="checking()">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -83,88 +84,117 @@
     let error = document.getElementById("txt")
     var check = false;
 
-const checkName = () => {
-    let name = document.getElementById("name").value
-    let num = name.match(/[A-Za-z ]/gm)
-    num === null ? num = 0 : num = name.match(/[A-Za-z ]/gm).length;
-    if (num === name.length) {
-        alert.display = 'none'
-        btn.disabled = false;
-        check = true;
+    const checkName = () => {
+        let name = document.getElementById("name").value
+        let num = name.match(/[A-Za-z ]/gm)
+        num === null ? num = 0 : num = name.match(/[A-Za-z ]/gm).length;
+        if (num === name.length) {
+            alert.display = 'none'
+            btn.disabled = false;
+            check = true;
+        }
+        else {
+            alert.display = 'block'
+            alert.color = 'red'
+            error.innerText = 'Only Alphabets are allowed in Name'
+            check = false;
+            btn.disabled = true;
+        }
     }
-    else {
-        alert.display = 'block'
-        alert.color = 'red'
-        error.innerText = 'Only Alphabets are allowed in Name'
-        check = false;
-        btn.disabled = true;
+    const checkCourse = () => {
+        let course = document.getElementById("course").value
+        let num = course.match(/[A-Za-z ]/gm)
+        num === null ? num = 0 : num = course.match(/[A-Za-z ]/gm).length;
+        if (num === course.length) {
+            alert.display = 'none'
+            btn.disabled = false;
+            check = true;
+        }
+        else {
+            alert.display = 'block'
+            alert.color = 'red'
+            error.innerText = 'Only Alphabets are allowed in Course'
+            check = false;
+            btn.disabled = true;
+        }
     }
-}
-const checkCourse = () => {
-    let course = document.getElementById("course").value
-    let num = course.match(/[A-Za-z ]/gm)
-    num === null ? num = 0 : num = course.match(/[A-Za-z ]/gm).length;
-    if (num === course.length) {
-        alert.display = 'none'
-        btn.disabled = false;
-        check = true;
-    }
-    else {
-        alert.display = 'block'
-        alert.color = 'red'
-        error.innerText = 'Only Alphabets are allowed in Course'
-        check = false;
-        btn.disabled = true;
-    }
-}
 
-const checkEmail = () => {
-    let email = document.getElementById("email").value
-    if (email.match(/@gmail.com/gm) === null) {
-        alert.display = 'block'
-        alert.color = 'red'
-        error.innerText = "Only '@gmail.com' email adress are allowed"
-        btn.disabled = true;
-        check = false;
+    const checkYear = () => {
+        let year = document.getElementById('year').value
+        console.log(year.match(/[1-5]/g))
+        if (year.match(/\d/g) === null) {
+            alert.display = 'block'
+            alert.color = 'red'
+            error.innerText = "Only Integers are allowed"
+            btn.disabled = true;
+            check = false;
+        }
+        else {
+            if (year.match(/[1-5]/g) === null) {
+                alert.display = 'block'
+                alert.color = 'red'
+                error.innerText = "Enter a Valid Year"
+                btn.disabled = true;
+                check = false;
+            }
+            else {
+                alert.display = 'none'
+                btn.disabled = false;
+                check = true;
+            }
+            // alert.display = 'none'
+            // btn.disabled = false;
+            // check = true;
+        }
     }
-    else {
-        alert.display = 'none'
-        btn.disabled = false;
-        check = true;
+
+    const checkEmail = () => {
+        let email = document.getElementById("email").value
+        if (email.endsWith('@gmail.com') === false) {
+            alert.display = 'block'
+            alert.color = 'red'
+            error.innerText = "Only '@gmail.com' email adress are allowed"
+            btn.disabled = true;
+            check = false;
+        }
+        else {
+            alert.display = 'none'
+            btn.disabled = false;
+            check = true;
+        }
     }
-}
-const checkPhone = () => {
-    let phone = document.getElementById("phone").value
-    if (phone.match(/\d/gm) === null) {
-        if (phone !== '') {
+    const checkPhone = () => {
+        let phone = document.getElementById("phone").value
+        if (phone.match(/\d/gm) === null) {
+            if (phone !== '') {
+                alert.display = 'block'
+                alert.color = 'red'
+                error.innerText = 'Only Phone Number are allowed'
+                btn.disabled = true;
+                check = false;
+            }
+        }
+        else if (phone.match(/\d/gm).length !== phone.length) {
+            console.log(phone.match(/\d/gm).length)
             alert.display = 'block'
             alert.color = 'red'
             error.innerText = 'Only Phone Number are allowed'
             btn.disabled = true;
             check = false;
         }
+        else if (phone.length !== 10) {
+            alert.display = 'block'
+            alert.color = 'red'
+            error.innerText = 'Phone is 10 digits required'
+            btn.disabled = true;
+            check = false;
+        }
+        else {
+            alert.display = 'none'
+            btn.disabled = false;
+            check = true;
+        }
     }
-    else if (phone.match(/\d/gm).length !== phone.length) {
-        console.log(phone.match(/\d/gm).length)
-        alert.display = 'block'
-        alert.color = 'red'
-        error.innerText = 'Only Phone Number are allowed'
-        btn.disabled = true;
-        check = false;
-    }
-    else if (phone.length !== 10) {
-        alert.display = 'block'
-        alert.color = 'red'
-        error.innerText = 'Phone is 10 digits required'
-        btn.disabled = true;
-        check = false;
-    }
-    else {
-        alert.display = 'none'
-        btn.disabled = false;
-        check = true;
-    }
-}
 
     const checking = () => {
         if (check) {
@@ -173,6 +203,9 @@ const checkPhone = () => {
                 checkEmail()
                 if (check) {
                     checkPhone()
+                    if (check) {
+                        checkYear()
+                    }
                 }
             }
         }
