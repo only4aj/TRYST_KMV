@@ -74,18 +74,18 @@ def registration(request):
     if not (name and phone and email and collegeName and course and year):
         return render(request, "registration.html",{'status':False,'data':''})
     
-    if not str(name).isalpha() :
-        return render(request, "registration.html",{'status':True,'data':'Please Enter valid name'})
-    if not str(phone).isnumeric() :
-        return render(request, "registration.html",{'status':True,'data':'Please Enter valid Phone number'})
-    if not str(email).endswith('@gmail.com'):
-        return render(request, "registration.html",{'status':True,'data':'Please Enter valid Email'})
-    if not str(collegeName).isalpha() :
-        return render(request, "registration.html",{'status':True,'data':'Please Enter valid Collge Name'})
-    if not str(year).isnumeric() :
-        return render(request, "registration.html",{'status':True,'data':'Please Enter valid Year'})
-    if str(course).isnumeric() and str(collegeName).isalnum():
-        return render(request, "registration.html",{'status':True,'data':'Please Enter valid Course'})
+    # if not str(name).isalpha() :
+    #     return render(request, "registration.html",{'status':True,'data':'Please Enter valid name'})
+    # if not str(phone).isnumeric() :
+    #     return render(request, "registration.html",{'status':True,'data':'Please Enter valid Phone number'})
+    # if not str(email).endswith('@gmail.com'):
+    #     return render(request, "registration.html",{'status':True,'data':'Please Enter valid Email'})
+    # if not str(collegeName).isalpha() :
+    #     return render(request, "registration.html",{'status':True,'data':'Please Enter valid College Name'})
+    # if not str(year).isnumeric() :
+    #     return render(request, "registration.html",{'status':True,'data':'Please Enter valid Year'})
+    # if str(course).isnumeric() and str(collegeName).isalnum():
+    #     return render(request, "registration.html",{'status':True,'data':'Please Enter valid Course'})
         
         # Store the path of the saved file in the session
 
@@ -159,13 +159,17 @@ def otp_verfication(request):
         user_email = session_data.get("email")
         user_collegeName = session_data.get("collegeName")
         user_idcard = filename
-        uid = get_random_string(10,allowed_chars='0123456789zxcvbnm&%$#@')
-        registration_data = RegistrationForm(name = user_name , phone = user_phone , collegeName = user_collegeName , email = user_email , StdIDCard = user_idcard,UID=uid)
+        user_course = session_data.get("course")
+        user_year = session_data.get("year")
+        uid = get_random_string(8,allowed_chars='0123456789abcdefghijklmnopqrstuvwxyz')
+        registration_data = RegistrationForm(name = user_name , phone = user_phone , collegeName = user_collegeName , email = user_email , StdIDCard = user_idcard,UID=uid, course=user_course, year=user_year)
         registration_data.save()
 
         qr_code = registration_data.Std_qr_code
+        print(qr_code.url)
+        
 
-        html_content = render_to_string("email_body.html" , {'username' : user_name,"image":qr_code.url})
+        html_content = render_to_string("email_body.html" , {'username' : user_name,'image':qr_code.url})
         text_content = strip_tags(html_content)
 
         email = EmailMultiAlternatives("TRYST'24 Entry Ticket" , text_content , EMAIL_HOST_USER , [user_email])
@@ -174,7 +178,7 @@ def otp_verfication(request):
         email.send()
 
         Session.objects.filter(session_key=session_id).delete()
-        return render(request , "success.html")
+        return render(request , "email_body.html", {'image':qr_code.url})
     
     else:
         Session.objects.filter(session_key=session_id).delete()

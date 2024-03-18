@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% comment %} <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,5 +8,124 @@
 <body style="background-color:black;">
      <h1 style="color:white;">Hello {{username}}</h1>
      <h2 style="color:white;">Here is your Entry Pass</h2>
+</body>
+</html> {% endcomment %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festival Pass</title>
+    <style>
+        /* Reset CSS */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Container */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f7f7f7;
+            border-radius: 10px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            color: rgb(255, 255, 170);
+            font-size: 32px;
+            margin: 0;
+        }
+
+        /* Fest Pass Image */
+        .fest-pass {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .fest-pass img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        /* Festival Details */
+        .details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .details h2 {
+            color: #333;
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        .details p {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        /* CTA Button */
+        .cta-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .cta-btn a {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-btn a:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>TRYST Entry Pass</h1>
+        </div>
+        <div class="fest-pass">
+            <img src="{{ image }}" alt="Festival Pass">
+        </div>
+        <div class="details">
+            <h2>Fest Details</h2>
+            <p><strong>Name:</strong> TRYST</p>
+            <p><strong>Date:</strong> 9 - 10 April, 2024</p>
+            <p><strong>Location:</strong> Keshav Mahavidyalaya, Pitampura, Delhi-36</p>
+        </div>
+        <br>
+        <div class="details">
+            <h2>Guidelines</h2>
+            <p>• A valid college ID card is mandatory for entry into the fest.</p>
+            <p>• Vehicle entry is not permitted inside the campus premises.</p>
+        </div>
+        <div class="cta-btn">
+            <a href="#">Get Ready to Party!</a>
+        </div>
+    </div>
 </body>
 </html>
