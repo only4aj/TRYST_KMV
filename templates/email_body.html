@@ -26,6 +26,7 @@
             padding: 0;
             font-family: Arial, sans-serif;
             line-height: 1.6;
+            background-color: rgb(10,10,10);
         }
 
         /* Container */
@@ -33,7 +34,7 @@
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f7f7f7;
+            background-color: rgb(24,24,24);
             border-radius: 10px;
         }
 
@@ -56,8 +57,8 @@
         }
 
         .fest-pass img {
-            max-width: 100%;
-            height: auto;
+            width: 50px;
+            height: 50px;
             border-radius: 10px;
         }
 
@@ -108,9 +109,9 @@
         <div class="header">
             <h1>TRYST Entry Pass</h1>
         </div>
-        <div class="fest-pass">
-            <img src="{{ image }}" alt="Festival Pass">
-        </div>
+        {% comment %} <div class="fest-pass">
+            <img src="{% static 'images/trystlogo.png' %}" alt="">
+        </div> {% endcomment %}
         <div class="details">
             <h2>Fest Details</h2>
             <p><strong>Name:</strong> TRYST</p>
@@ -120,6 +121,7 @@
         <br>
         <div class="details">
             <h2>Guidelines</h2>
+            <p>• Download the QR entry ticket attached below.</p>
             <p>• A valid college ID card is mandatory for entry into the fest.</p>
             <p>• Vehicle entry is not permitted inside the campus premises.</p>
         </div>

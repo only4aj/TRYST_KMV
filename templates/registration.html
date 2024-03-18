@@ -106,8 +106,8 @@
     }
     const checkCourse = () => {
         let course = document.getElementById("course").value
-        let num = course.match(/[A-Za-z ]/gm)
-        num === null ? num = 0 : num = course.match(/[A-Za-z ]/gm).length;
+        let num = course.match(/[A-Za-z .()]/gm)
+        num === null ? num = 0 : num = course.match(/[A-Za-z .()]/gm).length;
         if (num === course.length) {
             alert.display = 'none'
             btn.disabled = false;

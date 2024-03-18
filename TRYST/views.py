@@ -178,7 +178,7 @@ def otp_verfication(request):
         email.send()
 
         Session.objects.filter(session_key=session_id).delete()
-        return render(request , "email_body.html", {'image':qr_code.url})
+        return render(request , "success.html")
     
     else:
         Session.objects.filter(session_key=session_id).delete()
