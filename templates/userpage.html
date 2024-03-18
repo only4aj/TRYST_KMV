@@ -34,6 +34,14 @@
         .boldtxt{
             font-weight: bold;
         }
+        @media (max-width:450px) {
+            .content{
+                height: auto;
+            }
+            .mainContainer{
+                margin-bottom: 20px;
+            }
+        }
     </style>
 
 </head>
@@ -44,7 +52,7 @@
             <form class="row g-3" method="post">
                 {% csrf_token %}
                 <div class="col-auto">
-                    <label for="uid" class="visually-hidden">Student UID</label>
+                    <!-- <label for="uid" class="visually-hidden">Student UID</label> -->
                     <input type="text" class="form-control" name="uid" id="uid" maxlength="10" placeholder="Unique TRYST ID">
                 </div>
                 <div class="col-auto">
@@ -61,6 +69,8 @@
                     <p class="card-text"><span class="boldtxt">TRYST ID :</span> {{data.UID}}</p>
                     <p class="card-text"><span class="boldtxt">Phone :</span> {{data.phone}}</p>
                     <p class="card-text"><span class="boldtxt">College :</span> {{data.collegeName}}</p>
+                    <p class="card-text"><span class="boldtxt">Course :</span> {{data.course}}</p>
+                    <p class="card-text"><span class="boldtxt">Year :</span> {{data.year}}</p>
                     <p class="card-text"><span class="boldtxt">Email Id :</span> {{data.email}}</p>
                     <p class="card-text"><span class="boldtxt">Entry Time :</span> {{data.entryTime}}</p>
                     <button type="submit" class="btn btn-danger"> Enter User</button>
