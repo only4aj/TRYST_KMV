@@ -146,7 +146,7 @@ def otp_verfication(request):
             image_directory = os.path.join(settings.MEDIA_ROOT, 'images')
             os.makedirs(image_directory, exist_ok=True)
             
-            filename = os.path.join(image_directory, f"{session_data.get("name")[0:3]}_{session_data.get("phone")}_{random.randint(100000,999999)}_img.png")
+            filename = os.path.join(image_directory, f"{session_data.get('name')[0:3]}_{session_data.get('phone')}_{random.randint(100000,999999)}_img.png")
 
             with open(filename, 'wb+') as destination:
                 for chunk in image.chunks():
